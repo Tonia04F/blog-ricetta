@@ -19,7 +19,7 @@ public class Ingredient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotEmpty(message = "Il nome è necessario")
+	@NotEmpty(message = "Il nome è necessario:test")
 	@Column(nullable = false)
 	private String name;
 	
