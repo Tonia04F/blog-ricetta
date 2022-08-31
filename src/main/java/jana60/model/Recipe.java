@@ -92,7 +92,7 @@ public class Recipe {
 
 	public LocalDate getPublicationDate() {
 		
-		formatDate();
+		//formatDate();
 		return publicationDate;
 		
 	}
@@ -103,14 +103,14 @@ public class Recipe {
 	
 	//METHODS OF THE CLASS
 	
-	public String formatDate() {
+	/*public String formatDate() {
 		
 		String formattedDate;
 		DateTimeFormatter formdate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		formattedDate = this.publicationDate.format(formdate);
 		
-		return formattedDate;
+		return formattedDate;*/
 		
-	}
+	
 	
 }
