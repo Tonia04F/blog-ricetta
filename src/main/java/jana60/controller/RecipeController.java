@@ -45,14 +45,10 @@ public class RecipeController {
 	
 	
 	@PostMapping("/save")
-	  public String save(@Valid @ModelAttribute("NuovoOggetto") Recipe formSub,BindingResult br) {
+	  public String save(@ModelAttribute("NuovoOggetto") Recipe formSub) {
 	   
-		 if(br.hasErrors()) {
-			 return "/add";
-		 }
-		 
 		 recipeRepo.save(formSub);
-	      return "redirect:homePage";
+	      return "redirect:/recipesList";
 	    }
 	
 	
