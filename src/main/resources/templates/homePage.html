@@ -18,75 +18,8 @@
  	
  		<nav th:replace="fragments/navbar :: navbar('menu')"></nav>
  	
- 	</header>
- 	
-	<style>
-	
-	.nav{
-		background-color:white;
-		
-	}
-	
-	</style>
-	
- <!-- crezione della tabella per vedere la lista-->
-
-    <div class="container text-center w-75 " style="color: rgb(0, 0, 0); padding-top:10%;">
-        
-        <h2>Un ringraziamento ai sostenitori</h2>
-
-        <h2>Deliziati con le nostre ricette</h2>
-
-         <div th:if="${#lists.isEmpty(ListSub)}">
-	        <h1>Spiacenti, non è disponibile una lista di ricette</h1>
-	      </div>
-      <div th:unless="${#lists.isEmpty(ListSub)}" style="color: aliceblue;">
-      
-        <table class="table mb-5" style="color: black;">
-          <thead>
-            <tr>
-              <th>title</th>
-              <th>Descrizione</th>
-              <th>ingredientAmount</th>
-              <th>preparationTime</th>
-              <th>difficulty</th>
-              <th>description</th>
-            </tr>
-          </thead>
-
-
-          <tbody>
-            <tr th:each="t : ${ListSub}">
-              <td th:text="${t.title}"></td>
-              <td th:text="${t.ingredientAmount}"></td>
-              <td th:text="${t.preparationTime}"></td>
-              <td th:text="${t.difficulty}"></td>
-              <td th:text="${t.description}"></td>
-              
-              <td>
-	  				<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
-	  					<i class="fa-solid fa-trash-can"></i>
-	  				</a>
-
-					<a class="btn btn-primary" th:href="@{|/edit/${t.id}|}" title="Edit">
-	  					<i class="fa-solid fa-pen-to-square"></i>
-	  				</a>
-	  			</td>
-
-
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    
-    <div class="text-center" style="margin-top:10px;">
-                <a th:href="@{/add}"  role="button" class="btn btn-info me-3 rounded-3 text-dark fw-bold">Aggiungi una ricetta</a>
-                         </div>
-    
-    
-
-
+ 	</header>	
+ 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

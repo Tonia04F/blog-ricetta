@@ -36,6 +36,18 @@ public class RecipeController {
 		
 	}
 	
+	@GetMapping("/recipeslist")
+	public String recipeList(Model model) 
+	{
+		
+		List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
+		 
+		 model.addAttribute("ListSub", ListSub);
+		
+		return "recipesList";
+		
+	}
+	
 	@GetMapping("/add")
 	public String SubForm(Model model) {
 
