@@ -38,11 +38,34 @@ public class RecipeController {
 	
 	@GetMapping("/add")
 	public String SubForm(Model model) {
-		
-		model.addAttribute("NewObject",new Recipe());
-		return "/add";
+
+	 model.addAttribute("NewRecipe",new Recipe());
+		return "add";
 
 	}
+	
+	/*@PostMapping("/recipeslist")
+	public String RecipeSave(@Valid @ModelAttribute("recipe") Recipe recipeadd, BindingResult br) {
+		boolean brError = br.hasErrors();
+		boolean checkName = true;
+		if (recipeadd.getId() != null) {
+			Recipe vecia = recipeRepo.findById(recipeadd.getId()).get();
+			if (vecia.getTitle().equals(recipeadd.getTitle())) {
+				checkName = false;
+			}
+		}
+		if (checkName && recipeRepo.countByTitleAllIgnoreCase(recipeadd.getTitle()) > 0) {
+			br.addError(new FieldError("recipe", "title", "Il nome deve essere unico"));
+			brError = true;
+		}
+
+		if (brError) {
+			return "returnList";
+		} else {
+			recipeRepo.save(recipeadd);
+			return "redirect:/";
+		}
+	}*/
 	
 	
 	@PostMapping("/save")
@@ -50,14 +73,14 @@ public class RecipeController {
 	   
 		 if(br.hasErrors()) {
 			 
-			 return "/add";
+			 return "add";
 			 
 		 }
 		 
 		 recipeRepo.save(formSub);
 		 
-	     return "redirect:homePage";
+	     return "redirect:/";
 	     
 	}
-	
 }
+
