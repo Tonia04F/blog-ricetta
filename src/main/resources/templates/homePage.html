@@ -17,18 +17,13 @@
   <body>
   
     <h1>Hello, Recipe!</h1>
-    
-    
-    
-    
-    
-    
-    
+
+   
     <!-- crezione della tabella per vedere la lista-->
 
-    <div class="container text-center w-75 " style="color: aliceblue; padding-top:10%;">
+    <div class="container text-center w-75 " style="color: rgb(0, 0, 0); padding-top:10%;">
         
-        <h2>Un ringraziamento a ai sostenitori</h2>
+        <h2>Un ringraziamento ai sostenitori</h2>
          <div th:if="${#lists.isEmpty(ListSub)}">
 	        <h1>Spiacenti, non è disponibile una lista di insegnanti</h1>
 	      </div>
@@ -56,7 +51,7 @@
               <td th:text="${t.description}"></td>
               
               <td>
-	  				<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="return confirm('Are your sure?')">
+	  				<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
 	  					<i class="fa-solid fa-trash-can"></i>
 	  				</a>
 
