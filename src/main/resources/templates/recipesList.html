@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<th:block th:replace="fragments/resources :: headResources"></th>
+		
+		<title>Recipes List</title>
+		
+	</head>
+	
+	<body>
+	
+		<header>
+		
+			<nav th:replace="fragments/navbar :: navbar('homePage')"></nav>
+			
+		</header>
+		
+		<main>
+		
+			<div class="container-fluid">
+			
+				<div class="col-12">
+				
+					<th:block th:if="${successMessage != null && successMessage != ''}">
+					
+				  		<div th:text="${successMessage}" class="alert alert-success text-dark"></div>
+				  	
+				  	</th:block>
+				
+					<h1>Recipes List</h1>

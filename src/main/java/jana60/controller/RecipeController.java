@@ -38,27 +38,26 @@ public class RecipeController {
 	
 	@GetMapping("/add")
 	public String SubForm(Model model) {
-	 model.addAttribute("NuovoOggetto",new Recipe());
+		
+		model.addAttribute("NewObject",new Recipe());
 		return "/add";
 
- }
+	}
 	
 	
 	@PostMapping("/save")
-	  public String save(@Valid @ModelAttribute("NuovoOggetto") Recipe formSub,BindingResult br) {
+	public String save(@Valid @ModelAttribute("NewObject") Recipe formSub,BindingResult br) {
 	   
 		 if(br.hasErrors()) {
+			 
 			 return "/add";
+			 
 		 }
 		 
 		 recipeRepo.save(formSub);
-	      return "redirect:homePage";
-	    }
-	
-	
-	
-	
-	
-	
+		 
+	     return "redirect:homePage";
+	     
+	}
 	
 }
