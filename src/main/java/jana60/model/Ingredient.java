@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -27,8 +27,8 @@ public class Ingredient {
 	
 	private boolean isVegetarian;
 	
-	@ManyToMany(mappedBy = "ingredients")
-	private List<Recipe> recipes;
+	@OneToMany(mappedBy = "currentIngredient")
+	private List<IngredientAmount> currentRecipe;
 
 	//GETTERS AND SETTERS
 	
@@ -64,12 +64,12 @@ public class Ingredient {
 		this.isVegetarian = isVegetarian;
 	}
 
-	public List<Recipe> getRecipes() {
-		return recipes;
+	public List<IngredientAmount> getCurrentRecipe() {
+		return currentRecipe;
 	}
 
-	public void setRecipes(List<Recipe> recipes) {
-		this.recipes = recipes;
+	public void setCurrentRecipe(List<IngredientAmount> currentRecipe) {
+		this.currentRecipe = currentRecipe;
 	}
 	
 }

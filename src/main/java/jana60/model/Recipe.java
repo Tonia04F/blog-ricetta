@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,8 +28,6 @@ public class Recipe {
 	@Column(nullable = false)
 	private String title;
 	
-	private float ingredientAmount; 
-	
 	private Integer preparationTime;
 	
 	private Integer difficulty;
@@ -40,8 +38,8 @@ public class Recipe {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate publicationDate;
 	
-	@ManyToMany
-	private List<Ingredient> ingredients;
+	@OneToMany(mappedBy = "currentRecipe")
+	private List<IngredientAmount> ingredientAmount;
 
 	//GETTERS AND SETTERS
 	
@@ -61,11 +59,11 @@ public class Recipe {
 		this.title = title;
 	}
 
-	public float getIngredientAmount() {
+	public List<IngredientAmount> getIngredientAmount() {
 		return ingredientAmount;
 	}
 
-	public void setIngredientAmount(float ingredientAmount) {
+	public void setIngredientAmount(List<IngredientAmount> ingredientAmount) {
 		this.ingredientAmount = ingredientAmount;
 	}
 
