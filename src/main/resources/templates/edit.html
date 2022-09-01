@@ -5,7 +5,7 @@
   
 	    <th:block th:replace="fragments/resources :: head-resources"></th>
 	    
-	    <title>Aggiungi ricetta</title>
+	    <title>Modifica la ricetta</title>
     
   	</head>
   
@@ -13,7 +13,7 @@
   	
 	  	<header>
 	 	
-	 		<h1 class="text-center">Aggiungi una ricetta</h1>
+	 		<h1 class="text-center">Modifica la ricetta</h1>
 		 	<hr/>
 	 	
 	 		<nav th:replace="fragments/navbar :: navbar('recipes')"></nav>
@@ -29,6 +29,8 @@
 	    	th:action="@{/save}"
 	    	method=POST
 	    	>
+	    	
+	    	<input type="hidden" th:field="*{id}">
 	    	
 	    	<div class="mb-3">
 	    	
@@ -65,7 +67,7 @@
 			</div>
 					
 			<!--bottone per salvare nuova ricetta-->		
-			<button type="submit" class="btn btn-primary mt-3">Crea</button>
+			<button type="submit" class="btn btn-primary mt-3">Salva</button>
 			
 	    </form>
 	    <!--fine form--> 
