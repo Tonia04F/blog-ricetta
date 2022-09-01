@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
@@ -38,8 +39,8 @@ public class Recipe {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate publicationDate;
 	
-	@OneToMany(mappedBy = "currentRecipe")
-	private List<IngredientAmount> ingredientAmount;
+	@ManyToMany
+	private List<Ingredient> ingredients;
 
 	//GETTERS AND SETTERS
 	
@@ -59,12 +60,14 @@ public class Recipe {
 		this.title = title;
 	}
 
-	public List<IngredientAmount> getIngredientAmount() {
-		return ingredientAmount;
+	
+
+	public List<Ingredient> getIngredients() {
+		return ingredients;
 	}
 
-	public void setIngredientAmount(List<IngredientAmount> ingredientAmount) {
-		this.ingredientAmount = ingredientAmount;
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
 	}
 
 	public Integer getPreparationTime() {
