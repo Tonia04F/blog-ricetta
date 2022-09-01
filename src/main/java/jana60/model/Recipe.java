@@ -13,6 +13,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Recipe {
 	
@@ -35,6 +37,7 @@ public class Recipe {
 	@Lob
 	private String description;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate publicationDate;
 	
 	@ManyToMany
