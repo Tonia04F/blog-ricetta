@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
@@ -41,6 +42,9 @@ public class Recipe {
 	
 	@ManyToMany
 	private List<Ingredient> ingredients;
+	
+	@ManyToOne
+	public RecipeCategory category;
 
 	//GETTERS AND SETTERS
 	
@@ -104,6 +108,15 @@ public class Recipe {
 	public void setPublicationDate(LocalDate publicationDate) {
 		this.publicationDate = publicationDate;
 	}
+
+	public RecipeCategory getCategory() {
+		return category;
+	}
+
+	public void setCategory(RecipeCategory category) {
+		this.category = category;
+	}
+	
 	
 	//METHODS OF THE CLASS
 	
