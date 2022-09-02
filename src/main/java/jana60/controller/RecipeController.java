@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
 import jana60.model.Recipe;
@@ -98,6 +99,24 @@ public class RecipeController {
 	  	          "Recipe con id " + recipeId + " not present");
 	  	    }
 		  }
+		
+		//search
+		  @GetMapping("/search")
+		  public String search(@RequestParam(name = "queryTitle") String queryTitle, Model model) 
+				  {
+
+			  if (queryTitle != null && queryTitle.isEmpty()) {
+				  queryTitle = null;
+			  }
+			
+			  
+
+			  List<Recipe> recipes = recipeRepo.findByTitleContaining(queryTitle);
+			  model.addAttribute("ListSub", recipes);
+			  return "redirect:/";
+		  }
+
+
 		
 	 }
 
