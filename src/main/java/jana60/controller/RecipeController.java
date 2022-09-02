@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.server.ResponseStatusException;
 
 import jana60.model.Recipe;
+import jana60.model.RecipeCategory;
+import jana60.repository.RecipeCategoryRepository;
 import jana60.repository.RecipeRepository;
 
 @Controller
@@ -96,7 +98,6 @@ public class RecipeController {
 	  	          "Recipe con id " + recipeId + " not present");
 	  	    }
 		  }
-		  
-	 //metodo che salva nella home page la ricetta con le modifiche apportate
-}
+		
+	 }
 
