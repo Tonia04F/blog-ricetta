@@ -29,6 +29,9 @@
 					<input th:field="*{name}" type"text" class="form-control" placeholder="Aggiungi ingrediente" aria-label="Aggiungi ingrediente"
 					 aria-describedby="ingrediente-nutton" th:errorClass="is-invalid">
 					 <button class="btn btn-info" type="submit" id="ingredient-button">Salva</button>
+					 
+			
+					 
 <!-- gestione errori-->	
 					 <div th:if="${#fields.hasErrors('name')}" class="invalid-feedback">
 						<ul>
@@ -37,20 +40,29 @@
 					</div>	
 				</div>
 
+
+
+
    		</form>
+		
+
 		
    		
  <!-- alista ingr-->
-		 <ul class="list-group" th:if="${ingredients.size() > 0}">
+		 <ul class="list-group mt-3" th:if="${ingredients.size() > 0}">
 			<li class="list-group-item" th:each="i : ${ingredients}">
 			  		<span th:text="${i.name}"></span>
 			  		
 			</li>
 		</ul>
 		
+		
+		
 	<div class ="alert alert-info my-5" th:unless="${ingredients.size() > 0}">
 		<h3>Non ci sono ancora ingredienti</h3>
 	</div>
+	
+	
    		
   </div>
  </div>	
