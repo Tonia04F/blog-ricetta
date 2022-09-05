@@ -54,6 +54,19 @@ public class RecipeController {
 		
 	}
 	
+	//metodo search
+	@GetMapping("/search")
+	public String search(@RequestParam(name = "a")String a, Model model) {
+	
+		List<Recipe> ListSub = recipeRepo.findByTitleContaining(a);
+		model.addAttribute("a", a);
+		model.addAttribute("ListSub", ListSub);
+		return "search";		
+			}
+			
+			
+			
+	
 	@GetMapping("/add")
 	public String SubForm(Model model) {
 
@@ -100,21 +113,7 @@ public class RecipeController {
 	  	    }
 		  }
 		
-		//search
-		  @GetMapping("/search")
-		  public String search(@RequestParam(name = "queryTitle") String queryTitle, Model model) 
-				  {
-
-			  if (queryTitle != null && queryTitle.isEmpty()) {
-				  queryTitle = null;
-			  }
-			
-			  
-
-			  List<Recipe> recipes = recipeRepo.findByTitleContaining(queryTitle);
-			  model.addAttribute("ListSub", recipes);
-			  return "redirect:/";
-		  }
+		
 
 
 		
