@@ -8,5 +8,6 @@ import jana60.model.Recipe;
 
 public interface RecipeRepository  extends CrudRepository<Recipe, Integer> {
 
-	public List<Recipe> findByTitleContaining(String queryTitle);
+	//metodo corrispondente al select like del db per effettuare la ricerca nel search
+	public List<Recipe> findByTitleContaining(String a);
 }
