@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+  
+	    <th:block th:replace="fragments/resources :: head-resources"></th>
+	    
+	    <title>Aggiungi ricetta </title>
+    
+  	</head>
+  
+  	<body>
+  	
+	  	<header>
+	 	
+	 		<h1 class="text-center">Aggiungi una ricetta</h1>
+		 	<hr/>
+	 	
+	 		<nav th:replace="fragments/navbar :: navbar('recipes')"></nav>
+	 	
+	 	</header>
+	 
+ 	
+    	<!-- aggiungo form-->
+    
+	    <form
+	    	id="nuova-ricetta"
+	    	th:object="${NewRecipe}"
+	    	th:action="@{/save}"
+	    	method=POST
+	    	>
+	    	
+	    	<div class="mb-3">
+	    	
+					<label class ="form-label" for ="title">Title</label>
+					<input type="text" id="title" class ="form-controll" th:field="*{title}">
+					
+			</div>
+			
+			
+					
+			<div class="mb-3">
+			
+				<label class ="form-label" for ="preparationTime">Prep time</label>
+				<input type="number" id="preparationTime" class ="form-controll" th:field="*{preparationTime}">
+			
+			</div>
+					
+			<div class="mb - 3">
+				
+				<label class="form-label" for="difficulty">Difficulty</label>
+				<input type="number" id="difficulty" class="form-control" th:field="*{difficulty}">
+			
+			</div>
+					
+			<div class="mb - 3">
+						
+				<label class="form-label" for="description">Description</label>
+				<input type="text" id="description" class="form-control" th:field="*{description}">
+				
+					
+			</div>
+			
+			<div class="mb - 3">
+					<label class="form-label" for="publicationDate">publicationDate</label>
+					<input type="date" id="description" class="form-control" th:field="*{publicationDate}">
+			</div>
+					
+			<!--bottone per salvare nuova ricetta-->		
+			<button type="submit" class="btn btn-primary mt-3">Crea</button>
+			
+	    </form>
+	    <!--fine form--> 
+    
+  </body>
+  
+</html>
