@@ -1,0 +1,73 @@
+ <!doctype html>
+ <html lang="en" xmlns:th="http://www.thymeleaf.org">
+   <head>
+   <th:block th:replace="fragments/resources :: head-resources"></th>
+     <title>Ingredienti</title> 
+   </head>
+
+
+   <body>
+   			
+ 	<header>
+		 	<nav th:replace="fragments/navbar :: navbar('homePage')"></nav>
+		 	<h1 class=" text-center">Ingredient</h1>
+		 	<hr/>
+ 	</header>	
+ 	
+ 	
+   	<div class="container">
+   		
+   	<div class="col-6">	
+<!--creo form aggiungi ingredienti e poi devo aggiungere lista dove si vedranno gli ingredienti ggiunte-->
+		<form 
+			id="form-category"
+			th:object="${newIngredient}"
+			th:action="@{/ingredients/save}"
+			method="POST">
+			
+				<div class="input-group mb-3 has-validation">
+					<input th:field="*{name}" type"text" class="form-control" placeholder="Aggiungi ingrediente" aria-label="Aggiungi ingrediente"
+					 aria-describedby="ingrediente-nutton" th:errorClass="is-invalid">
+					 <button class="btn btn-info" type="submit" id="ingredient-button">Salva</button>
+					 
+			
+					 
+<!-- gestione errori-->	
+					 <div th:if="${#fields.hasErrors('name')}" class="invalid-feedback">
+						<ul>
+							<li th:each="err : ${#fields.errors('name')}" th:text="${err}">
+						</ul>
+					</div>	
+				</div>
+
+
+
+
+   		</form>
+		
+
+		
+   		
+ <!-- alista ingr-->
+		 <ul class="list-group mt-3" th:if="${ingredients.size() > 0}">
+			<li class="list-group-item" th:each="i : ${ingredients}">
+			  		<span th:text="${i.name}"></span>
+			  		
+			</li>
+		</ul>
+		
+		
+		
+	<div class ="alert alert-info my-5" th:unless="${ingredients.size() > 0}">
+		<h3>Non ci sono ancora ingredienti</h3>
+	</div>
+	
+	
+   		
+  </div>
+ </div>	
+
+   		
+   			<th:block th:fragment="risorse-scrips"></th:block>
+  </body>
+ </html>

@@ -4,11 +4,11 @@
 
 		<div class="nav-centered justify-content-around shadow mb-5 bg-body d-flex justify-content-around w-100" >
 
-			<nav th:fragment="navbar(current)" class="navbar navbar-expand-lg navbar-light bg-light ">
+			<nav th:fragment="navbar(current)" class="navbar navbar-expand-lg navbar-light bg-warning ">
 
 				<div class="nav-wrapper container-fluid ">
 
-					<a class="navbar-brand" href="#">Nome blog</a>
+					<a class="navbar-brand fst-italic" href="#">Ricette Casarecce</a>
 
 				    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -22,48 +22,52 @@
 
 					        <li class="nav-item">
 
-					          <a class="nav-link" th:classAppend="${current == 'homePage'} ? active : not-active" href="/">Home</a>
+					          <a class="nav-link fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" href="/">Home</a>
 
 					        </li>
 					        <li class="nav-item dropdown">
 
-					          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					          <a class="nav-link active dropdown-toggle fst-italic" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					          Ricette
 					          </a>
 
 					          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-					          	<li><a class="dropdown-item" href="/recipeslist">Tutte le ricette</a></li>
-					            <li><a class="dropdown-item" href="#">Vegetariano</a></li>
-					            <li><a class="dropdown-item" href="#">Vegano</a></li>
+					          	<li><a class="dropdown-item fst-italic" href="/recipeslist">Tutte le ricette</a></li>
+					            <li><a class="dropdown-item fst-italic" href="#">Vegetariano</a></li>
+					            <li><a class="dropdown-item fst-italic" href="#">Vegano</a></li>
 
 					          </ul>
 
 					        </li>	
-						</ul>	
+						</ul>
 						
-				  		      
-					    <ul class="navbar-nav text-center">
-
-					      	<li class="nav-item">
-
-					        	<a class="nav-link active" th:classAppend="${current == 'homePage'} ? active : not-active" aria-current="page" href="#">Registrati</a>
-
-					        </li>					    
-					        <li class="nav-item">
-
-					        	<a class="nav-link active" aria-current="page" href="#">Accedi</a>
-
-					     	</li>
-
-					     </ul>
-					     
-					     
-					     <!--form per tasto search-->
+						
+						
+				  		  <!--form per tasto search-->
 					     <form action="/search" method="GET">
 					     	<input type="text" name="a">
 					     	<button>Search</button>
-					     </form>
+					     </form> 
+					     
+					   </div>	  
+				  		    
+				  		<div class="text-end">      
+						    <ul class="navbar-nav py-1">
+	
+						      	<li class="nav-item">
+	
+						        	<a class="nav-link active fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" aria-current="page" href="#">Registrati</a>
+	
+						        </li>					    
+						        <li class="nav-item">
+	
+						        	<a class="nav-link active fst-italic" aria-current="page" href="#">Accedi</a>
+	
+						     	</li>
+
+					     	</ul>
+				  		</div>
 					    
 					    </div>
 
