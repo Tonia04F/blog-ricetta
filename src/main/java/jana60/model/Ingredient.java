@@ -28,8 +28,6 @@ public class Ingredient {
 	
 	private boolean isVegetarian;
 	
-	private String amount;
-	
 	@ManyToMany(mappedBy = "ingredients")
 	private List<Recipe> recipes;
 
@@ -38,14 +36,6 @@ public class Ingredient {
 	
 	public Integer getId() {
 		return id;
-	}
-
-	public String getAmount() {
-		return amount;
-	}
-
-	public void setAmount(String amount) {
-		this.amount = amount;
 	}
 
 	public void setId(Integer id) {

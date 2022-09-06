@@ -43,6 +43,7 @@
               <th>difficulty</th>
               <th>description</th>
               <th>date</th>
+              <td>isVegan</td>
             </tr>
           </thead>
 
@@ -55,6 +56,7 @@
               <td th:text="${t.difficulty}"></td>
               <td th:text="${t.description}"></td>
               <td th:text="${t.publicationDate}"></td>
+              <td th:text="${t.isVegan}"></td>
               
               <td>
 	  				<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">

@@ -20,6 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import jana60.model.Recipe;
 import jana60.model.RecipeCategory;
+import jana60.repository.IngredientRepository;
 import jana60.repository.RecipeCategoryRepository;
 import jana60.repository.RecipeRepository;
 
@@ -30,13 +31,16 @@ public class RecipeController {
 	@Autowired
 	public RecipeRepository recipeRepo;
 	
+	@Autowired
+	public IngredientRepository ingredientRepo;
+	
 	@GetMapping
 	public String homePage(Model model) 
 	{
 		
 		List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
 		 
-		 model.addAttribute("ListSub", ListSub);
+		model.addAttribute("ListSub", ListSub);
 		
 		return "homePage";
 		
@@ -48,7 +52,7 @@ public class RecipeController {
 		
 		List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
 		 
-		 model.addAttribute("ListSub", ListSub);
+		model.addAttribute("ListSub", ListSub);
 		
 		return "recipesList";
 		
@@ -61,16 +65,19 @@ public class RecipeController {
 		List<Recipe> ListSub = recipeRepo.findByTitleContaining(a);
 		model.addAttribute("a", a);
 		model.addAttribute("ListSub", ListSub);
-		return "search";		
-			}
+		return "search";
+		
+	}
 			
 			
 			
 	
 	@GetMapping("/add")
 	public String SubForm(Model model) {
-
-	 model.addAttribute("NewRecipe",new Recipe());
+		
+		model.addAttribute("NewRecipe",new Recipe());
+		model.addAttribute("ingredientsList", ingredientRepo.findAll());		
+	
 		return "add";
 
 	}
@@ -94,6 +101,7 @@ public class RecipeController {
 	//metodo per cancellare ricetta
 	@GetMapping("/delete/{id}")
 	  public String delete(@PathVariable("id") Integer recipeId) {
+		
 		  recipeRepo.deleteById(recipeId);
 		  return "redirect:/";
 		  
@@ -105,17 +113,18 @@ public class RecipeController {
 		    Optional<Recipe> result = recipeRepo.findById(recipeId);
 		    
 		    if (result.isPresent()) {
-		     model.addAttribute("NewRecipe", result.get());
-		      return "/edit";
+		    	
+		    	model.addAttribute("NewRecipe", result.get());
+		    	return "/edit";
+		    	
 		    }else{
-		      throw new ResponseStatusException(HttpStatus.NOT_FOUND,
-	  	          "Recipe con id " + recipeId + " not present");
+		    	
+		    	throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+		    	"Recipe con id " + recipeId + " not present");
+		      
 	  	    }
+		    
 		  }
-		
-		
-
-
 		
 	 }
 

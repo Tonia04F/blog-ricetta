@@ -26,10 +26,12 @@ public class IngredientController {
 	//metodo che crea nuovo ingrediente
 	@GetMapping
 	public String newIngredient(Model model) {
-		model.addAttribute("ingredients", ingredientRepo.findAll());
+		
 		//per la form di creazione instanzio new Ingrediente
 		model.addAttribute("newIngredient", new Ingredient());
+		model.addAttribute("ingredients", ingredientRepo.findAll());
 		return"/ingredients";
+		
 	}
 	
 	
@@ -49,6 +51,7 @@ public class IngredientController {
 	     return "redirect:/";
 	     
 	}
+	
 }
 
 

@@ -31,6 +31,8 @@ public class Recipe {
 	@Column(nullable = false)
 	private String title;
 	
+	private boolean isVegan;
+	
 	private Integer preparationTime;
 	
 	private Integer difficulty;
@@ -132,6 +134,17 @@ public class Recipe {
 		
 		return formattedDate;*/
 		
-	
+	public void isVegan() {
+		
+		for (Ingredient ing : ingredients) {
+			
+			if(ing.isVegan())
+				isVegan = true;
+			else
+				isVegan = false;
+			
+		}
+		
+	}
 	
 }
