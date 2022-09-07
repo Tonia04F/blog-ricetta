@@ -74,6 +74,16 @@
 					<label class="form-check-label" th:for="|ingredient_${ing.id}|" th:text="${ing.name}"></label>
 							
 			</div>
+			
+			<span>Lista Categorie</span>
+			
+			<div class="form-check" th:each="cat : ${categoryList}">
+					
+					<input class="form-check-input" th:field="*{category}" type="checkbox" th:id="|category_${cat.id}|" th:value="${cat.id}">
+					<label class="form-check-label" th:for="|category_${cat.id}|" th:text="${cat.name}"></label>
+							
+			</div>
+			
 					
 			<!--bottone per salvare nuova ricetta-->		
 			<button type="submit" class="btn btn-primary mt-3">Crea</button>
