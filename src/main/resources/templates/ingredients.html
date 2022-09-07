@@ -40,8 +40,14 @@
 						</div> 	
 						<div class="mb-3">	
 						
-						 	<input type="checkbox" name="*{isVegan}" th:checked="${newIngredient.isVegan}"/>
+						 	<input type="checkbox"  id="isVegan" value="true" th:field="*{isVegan}"  />
 						 	<label>Vegano</label>
+						 	
+						</div> 
+						<div class="mb-3">	
+						
+						 	<input type="checkbox"  id="isVegetarian" value="true" th:field="*{isVegetarian}"  />
+						 	<label>Vegetariano</label>
 						 	
 						</div> 
 						 	<button class="btn btn-info" type="submit" id="ingredient-button">Salva</button>

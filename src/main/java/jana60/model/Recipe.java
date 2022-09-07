@@ -31,7 +31,7 @@ public class Recipe {
 	@Column(nullable = false)
 	private String title;
 	
-	private boolean isVegan;
+	private Boolean isVegan;
 	
 	private Integer preparationTime;
 	

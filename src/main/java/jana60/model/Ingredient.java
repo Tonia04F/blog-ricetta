@@ -24,9 +24,11 @@ public class Ingredient {
 	@Column(nullable = false)
 	private String name;
 	
-	private boolean isVegan;
+	private Boolean isVegan;
 	
-	private boolean isVegetarian;
+	private Boolean isVegetarian;
+	
+	private String ingredientAmount;
 	
 	@ManyToMany(mappedBy = "ingredients")
 	private List<Recipe> recipes;
@@ -50,19 +52,19 @@ public class Ingredient {
 		this.name = name;
 	}
 
-	public boolean isVegan() {
+	public Boolean getIsVegan() {
 		return isVegan;
 	}
 
-	public void setVegan(boolean isVegan) {
+	public void setIsVegan(Boolean isVegan) {
 		this.isVegan = isVegan;
 	}
 
-	public boolean isVegetarian() {
+	public Boolean getIsVegetarian() {
 		return isVegetarian;
 	}
 
-	public void setVegetarian(boolean isVegetarian) {
+	public void setIsVegetarian(Boolean isVegetarian) {
 		this.isVegetarian = isVegetarian;
 	}
 
@@ -73,6 +75,16 @@ public class Ingredient {
 	public void setRecipes(List<Recipe> recipes) {
 		this.recipes = recipes;
 	}
+
+	public String getIngredientAmount() {
+		return ingredientAmount;
+	}
+
+	public void setIngredientAmount(String ingredientAmount) {
+		this.ingredientAmount = ingredientAmount;
+	}
+	
+	
 
 	
 	
