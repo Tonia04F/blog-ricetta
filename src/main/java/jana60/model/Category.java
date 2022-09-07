@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Entity
-public class RecipeCategory {
+public class Category {
 	
 	//ATTRIBUTI 
 	

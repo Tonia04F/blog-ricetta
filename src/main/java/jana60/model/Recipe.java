@@ -47,7 +47,7 @@ public class Recipe {
 	private List<Ingredient> ingredients;
 	
 	@ManyToOne
-	public RecipeCategory category;
+	public Category category;
 	
 	@ManyToMany
 	private List<Comment> comments;
@@ -115,11 +115,11 @@ public class Recipe {
 		this.publicationDate = publicationDate;
 	}
 
-	public RecipeCategory getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(RecipeCategory category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 	

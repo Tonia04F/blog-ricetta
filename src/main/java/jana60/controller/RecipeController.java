@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
 import jana60.model.Recipe;
-import jana60.model.RecipeCategory;
+import jana60.model.Category;
 import jana60.repository.IngredientRepository;
-import jana60.repository.RecipeCategoryRepository;
+import jana60.repository.CategoryRepository;
 import jana60.repository.RecipeRepository;
 
 @Controller
