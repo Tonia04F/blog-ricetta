@@ -58,7 +58,6 @@
 				            
 				              <th>title</th>
 				              <th>Descrizione</th>
-				              <th>ingredientAmount</th>
 				              <th>preparationTime</th>
 				              <th>difficulty</th>
 				              <th>description</th>
@@ -73,7 +72,6 @@
 				            <tr th:each="t : ${ListSub}">
 				            
 				            	<td th:text="${t.title}"></td>
-				            	<td th:text="${t.ingredientAmount}"></td>
 				              	<td th:text="${t.preparationTime}"></td>
 				             	<td th:text="${t.difficulty}"></td>
 				             	<td th:text="${t.description}"></td>

@@ -134,7 +134,7 @@ public class Recipe {
 		
 		return formattedDate;*/
 		
-	public void isVegan() {
+	/*public void isVegan() {
 		
 		for (Ingredient ing : ingredients) {
 			
@@ -145,6 +145,6 @@ public class Recipe {
 			
 		}
 		
-	}
+	}*/
 	
 }
