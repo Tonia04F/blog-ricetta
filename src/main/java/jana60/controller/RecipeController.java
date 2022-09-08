@@ -65,8 +65,8 @@ public class RecipeController {
 	//metodo search
 	@GetMapping("/search")
 	public String search(@RequestParam(name = "queryTitle", required = false)String queryTitle, 
-			@RequestParam(name = "description", required = false) String queryDescription, Model model ){
-		
+			@RequestParam(name = "description", required = false) String queryDescription, 
+			@RequestParam(name="categoryId", required = false) Integer categoryId, Model model ){
 		
 			if (queryTitle != null && queryTitle.isEmpty()) {
 			      queryTitle = null;
@@ -76,26 +76,24 @@ public class RecipeController {
 		    }
 		//	@RequestParam(name = "category", required = false)Integer categoryId, l) {
 	
-		//Optional <Category> category=categoryRepo.findById(categoryId);
-		//List<Recipe> ListSub = new ArrayList<>();
+		Optional <Category> category=categoryRepo.findById(categoryId);
+		List<Recipe> results = new ArrayList<>();
 
 		
-		/*if (queryTitle != null && queryTitle.isEmpty()) {
-		      queryTitle = null;
-		    }
 		    if (categoryId != null && categoryId==0) {
-		    	categoryId = 0;
+		    	categoryId = null;
 		    }
 		
-		/*if(category.isPresent()) {
-			List<Recipe> risultati = recipeRepo.findByTitleContainingOrCategoryOrDescriptionContaining(queryTitle,category.get(), queryDescription);
+		if(category.isPresent()) {
+			List<Recipe> findCategory = recipeRepo.findByCategory(category.get());
 			
-			ListSub.addAll(risultati);
-		}*/
+			results.addAll(findCategory);
+		}
 		List<Recipe> ListSub = recipeRepo.findByTitleContainingOrDescriptionContaining(queryTitle, queryDescription);
 		
+		model.addAttribute("results", results);
 		model.addAttribute("description", queryDescription);
-		//model.addAttribute("category", category);
+		model.addAttribute("category", category);
 		model.addAttribute("queryTitle", queryTitle);
 		model.addAttribute("ListSub", ListSub);
 		return "search";
