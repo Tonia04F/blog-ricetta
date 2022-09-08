@@ -1,0 +1,36 @@
+    	
+    	
+    	<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<th:block th:replace="fragments/resources :: head-resources"></th>
+		
+		<title>Advanced Search</title>
+		
+	</head>
+	
+	
+	<body>
+	
+		<header>
+		
+			<nav th:replace="fragments/navbar :: navbar('recipes')"></nav>
+			
+		</header>
+    	
+			 <div class="container">
+						 
+			  
+			    
+			    <form action="/search">
+			    	Description <input class="form-control" type="text" name="description">
+			    	Categorie <input class="form-control" type="text" name="category">
+			    	<button>Search</button>
+			    </form>
+					 
+    	
+    	</body>
+	
+</html>			
+		

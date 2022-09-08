@@ -46,9 +46,12 @@
 						
 				  		  <!--form per tasto search-->
 					     <form action="/search" method="GET">
-					     	<input type="text" name="a">
+					     	<input type="text" name="queryTitle">
 					     	<button>Search</button>
 					     </form> 
+					     
+				  <a class="nav-link fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" href="/advancedSearch">Advanced search</a>
+
 					     
 					   </div>	  
 				  		    
