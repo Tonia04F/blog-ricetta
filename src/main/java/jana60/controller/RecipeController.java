@@ -1,5 +1,6 @@
 package jana60.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,16 +64,40 @@ public class RecipeController {
 	
 	//metodo search
 	@GetMapping("/search")
-	public String search(@RequestParam(name = "a")String a, Model model) {
+	public String search(@RequestParam(name = "queryTitle", required = false)String queryTitle, 
+			@RequestParam(name = "description", required = false) String queryDescription, Model model ){
+		//	@RequestParam(name = "category", required = false)Integer categoryId, l) {
 	
-		List<Recipe> ListSub = recipeRepo.findByTitleContaining(a);
-		model.addAttribute("a", a);
+		//Optional <Category> category=categoryRepo.findById(categoryId);
+		//List<Recipe> ListSub = new ArrayList<>();
+
+		
+		/*if (queryTitle != null && queryTitle.isEmpty()) {
+		      queryTitle = null;
+		    }
+		    if (categoryId != null && categoryId==0) {
+		    	categoryId = 0;
+		    }
+		
+		/*if(category.isPresent()) {
+			List<Recipe> risultati = recipeRepo.findByTitleContainingOrCategoryOrDescriptionContaining(queryTitle,category.get(), queryDescription);
+			
+			ListSub.addAll(risultati);
+		}*/
+		List<Recipe> ListSub = recipeRepo.findByTitleContainingOrDescriptionContaining(queryTitle, queryDescription);
+		
+		model.addAttribute("description", queryDescription);
+		//model.addAttribute("category", category);
+		model.addAttribute("queryTitle", queryTitle);
 		model.addAttribute("ListSub", ListSub);
 		return "search";
 		
 	}
-			
-			
+		//advanced search
+	 @GetMapping("/advancedSearch")
+	  public String advancedSearch() {
+	    return "advancedSearch";
+	  }
 			
 	
 	@GetMapping("/add")
@@ -115,6 +140,8 @@ public class RecipeController {
 		@GetMapping("/edit/{id}")
 		  public String edit(@PathVariable("id") Integer recipeId, Model model) {
 		    Optional<Recipe> result = recipeRepo.findById(recipeId);
+
+		  
 		    
 		    if (result.isPresent()) {
 		    	
