@@ -19,7 +19,6 @@
 		<main>
 		
 			<div class="container-fluid">
-						<h1 th:text="${queryTitle}"></h1>
 						</hr>
 						
 						 <div th:if="${#lists.isEmpty(ListSub)}">
@@ -67,45 +66,7 @@
 		          </tbody>
 		        </table>
 		      </div>
-					<table class="table mb-5" style="color: black;">
-		          <thead>
-		            <tr>
-		              <th>title</th>
-		              <th>Descrizione</th>
-		              <th>ingredientAmount</th>
-		              <th>preparationTime</th>
-		              <th>difficulty</th>
-		              <th>description</th>
-		              <th>date</th>
-		              <th>categorie</th>
-		            </tr>
-		          </thead>
-		
-		
-		          <tbody>
-		            <tr th:each="t : ${results}">
-		              <td th:text="${t.title}"></td>
-		            
-		              <td th:text="${t.preparationTime}"></td>
-		              <td th:text="${t.difficulty}"></td>
-		              <td th:text="${t.description}"></td>
-		              <td th:text="${t.publicationDate}"></td>
-		              <td th:text="${t.category}"></td>
-		              
-		              <td>
-			  				<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
-			  					<i class="fa-solid fa-trash-can"></i>
-			  				</a>
-		
-							<a class="btn btn-primary" th:href="@{|/edit/${t.id}|}" title="Edit">
-			  					<i class="fa-solid fa-pen-to-square"></i>
-			  				</a>
-			  			</td>
-		
-		
-		            </tr>
-		          </tbody>
-		        </table>		
+						
 			</div>
 				
 		    

@@ -74,24 +74,18 @@ public class RecipeController {
 		    if (queryDescription != null && queryDescription.isEmpty()) {
 		    	queryDescription = null;
 		    }
-		//	@RequestParam(name = "category", required = false)Integer categoryId, l) {
 	
 		Optional <Category> category=categoryRepo.findById(categoryId);
-		List<Recipe> results = new ArrayList<>();
+		List<Recipe> ListSub = new ArrayList<>();
 
 		
-		    if (categoryId != null && categoryId==0) {
-		    	categoryId = null;
-		    }
-		
 		if(category.isPresent()) {
-			List<Recipe> findCategory = recipeRepo.findByCategory(category.get());
-			
-			results.addAll(findCategory);
+			List<Recipe> results = recipeRepo.findByTitleContainingOrDescriptionContainingOrCategory(queryTitle, queryDescription, category.get());
+			ListSub.addAll(results);
+		}else {
+			ListSub = recipeRepo.findByTitleContainingOrDescriptionContainingOrCategory(queryTitle, queryDescription, null);
 		}
-		List<Recipe> ListSub = recipeRepo.findByTitleContainingOrDescriptionContaining(queryTitle, queryDescription);
 		
-		model.addAttribute("results", results);
 		model.addAttribute("description", queryDescription);
 		model.addAttribute("category", category);
 		model.addAttribute("queryTitle", queryTitle);
