@@ -29,7 +29,7 @@ public class IngredientController {
 		
 		//per la form di creazione instanzio new Ingrediente
 		model.addAttribute("newIngredient", new Ingredient());
-		model.addAttribute("ingredients", ingredientRepo.findAll());
+		model.addAttribute("ingredients", ingredientRepo.findAllByOrderByName());
 		return"/ingredients";
 		
 	}
@@ -48,7 +48,7 @@ public class IngredientController {
 		 
 		 ingredientRepo.save(formSub);
 		 
-	     return "redirect:/";
+	     return "redirect:/ingredients";
 	     
 	}
 	

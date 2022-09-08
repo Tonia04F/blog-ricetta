@@ -104,7 +104,7 @@ public class RecipeController {
 	public String SubForm(Model model) {
 		
 		model.addAttribute("NewRecipe",new Recipe());
-		model.addAttribute("ingredientsList", ingredientRepo.findAll());
+		model.addAttribute("ingredientsList", ingredientRepo.findAllByOrderByName());
 		model.addAttribute("categoryList", categoryRepo.findAll());	
 	
 		return "add";
@@ -146,7 +146,7 @@ public class RecipeController {
 		    if (result.isPresent()) {
 		    	
 		    	model.addAttribute("NewRecipe", result.get());
-		    	model.addAttribute("ingredientsList", ingredientRepo.findAll());
+		    	model.addAttribute("ingredientsList", ingredientRepo.findAllByOrderByName());
 				model.addAttribute("categoryList", categoryRepo.findAll());	
 		    	return "/edit";
 		    	

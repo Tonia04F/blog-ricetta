@@ -19,11 +19,26 @@
  	
  	<!-- crezione della tabella per vedere la lista-->
 
+    <div class="container mt-3 fst-italic">
+    	descrizione da inserire come introduzione al sito
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="container text-center w-75 " style="color: rgb(0, 0, 0); padding-top:10%;">
-        
-        <h2>Un ringraziamento ai sostenitori</h2>
 
-        <h2>Deliziati con le nostre ricette</h2>
+        <h3>Soddisfa il tuo appetito con queste deliziose ricette!</h3>
 
          <div th:if="${#lists.isEmpty(ListSub)}">
 	        <h1>Spiacenti, non è disponibile una lista di ricette</h1>
@@ -33,13 +48,13 @@
         <table class="table mb-5" style="color: black;">
           <thead>
             <tr>
-              <th>title</th>
+              <th>Ricetta</th>
+              <th>Tempo di preparazione</th>
+              <th>Difficoltà</th>
               <th>Descrizione</th>
-              <th>ingredientAmount</th>
-              <th>preparationTime</th>
-              <th>difficulty</th>
-              <th>description</th>
-              <th>date</th>
+              <th>Data di pubbliccazione</th>
+              <th>Buttons</th>
+              
               
             </tr>
           </thead>
@@ -48,7 +63,6 @@
           <tbody>
             <tr th:each="t : ${ListSub}">
               <td th:text="${t.title}"></td>
-            
               <td th:text="${t.preparationTime}"></td>
               <td th:text="${t.difficulty}"></td>
               <td th:text="${t.description}"></td>
@@ -77,20 +91,20 @@
     </div>
     
     <div class="text-center" style="margin-top:10px;">
-                <a th:href="@{/add}"  role="button" class="btn btn-info me-3 rounded-3 text-dark fw-bold">Aggiungi una ricetta</a>
+                <a th:href="@{/add}"  role="button" class="btn btn-warning me-3 rounded-3 text-dark fw-bold">Aggiungi una ricetta</a>
                          </div>
  
   <div class="text-center" style="margin-top:10px;">
-                <a th:href="@{/ingredients}"  role="button" class="btn btn-info me-3 rounded-3 text-dark fw-bold">Aggiungi un ingrediente</a>
+                <a th:href="@{/ingredients}"  role="button" class="btn btn-warning me-3 rounded-3 text-dark fw-bold">Aggiungi un ingrediente</a>
                          </div>
  
  
  <div class="text-center" style="margin-top:10px;">
-                <a th:href="@{/comments}"  role="button" class="btn btn-info me-3 rounded-3 text-dark fw-bold">Aggiungi un commento</a>
+                <a th:href="@{/comments}"  role="button" class="btn btn-warning me-3 rounded-3 text-dark fw-bold">Aggiungi un commento</a>
                          </div>
                          
    <div class="text-center" style="margin-top:10px;">
-                <a th:href="@{/category}"  role="button" class="btn btn-info me-3 rounded-3 text-dark fw-bold">Aggiungi una categoria</a>
+                <a th:href="@{/category}"  role="button" class="btn btn-warning me-3 rounded-3 text-dark fw-bold">Aggiungi una categoria</a>
                          </div>
  
     <!-- Option 1: Bootstrap Bundle with Popper -->
