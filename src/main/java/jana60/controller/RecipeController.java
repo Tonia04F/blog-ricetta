@@ -65,29 +65,29 @@ public class RecipeController {
 	//metodo search
 	@GetMapping("/search")
 	public String search(@RequestParam(name = "queryTitle", required = false)String queryTitle, 
-			@RequestParam(name = "description", required = false) String queryDescription, Model model ){
-		//	@RequestParam(name = "category", required = false)Integer categoryId, l) {
+			@RequestParam(name = "description", required = false) String queryDescription, 
+			@RequestParam(name="categoryId", required = false) Integer categoryId, Model model ){
+		
+			if (queryTitle != null && queryTitle.isEmpty()) {
+			      queryTitle = null;
+			}
+		    if (queryDescription != null && queryDescription.isEmpty()) {
+		    	queryDescription = null;
+		    }
 	
-		//Optional <Category> category=categoryRepo.findById(categoryId);
-		//List<Recipe> ListSub = new ArrayList<>();
+		Optional <Category> category=categoryRepo.findById(categoryId);
+		List<Recipe> ListSub = new ArrayList<>();
 
 		
-		/*if (queryTitle != null && queryTitle.isEmpty()) {
-		      queryTitle = null;
-		    }
-		    if (categoryId != null && categoryId==0) {
-		    	categoryId = 0;
-		    }
-		
-		/*if(category.isPresent()) {
-			List<Recipe> risultati = recipeRepo.findByTitleContainingOrCategoryOrDescriptionContaining(queryTitle,category.get(), queryDescription);
-			
-			ListSub.addAll(risultati);
-		}*/
-		List<Recipe> ListSub = recipeRepo.findByTitleContainingOrDescriptionContaining(queryTitle, queryDescription);
+		if(category.isPresent()) {
+			List<Recipe> results = recipeRepo.findByTitleContainingOrDescriptionContainingOrCategory(queryTitle, queryDescription, category.get());
+			ListSub.addAll(results);
+		}else {
+			ListSub = recipeRepo.findByTitleContainingOrDescriptionContainingOrCategory(queryTitle, queryDescription, null);
+		}
 		
 		model.addAttribute("description", queryDescription);
-		//model.addAttribute("category", category);
+		model.addAttribute("category", category);
 		model.addAttribute("queryTitle", queryTitle);
 		model.addAttribute("ListSub", ListSub);
 		return "search";
