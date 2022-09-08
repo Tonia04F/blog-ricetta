@@ -66,6 +66,14 @@ public class RecipeController {
 	@GetMapping("/search")
 	public String search(@RequestParam(name = "queryTitle", required = false)String queryTitle, 
 			@RequestParam(name = "description", required = false) String queryDescription, Model model ){
+		
+		
+			if (queryTitle != null && queryTitle.isEmpty()) {
+			      queryTitle = null;
+			}
+		    if (queryDescription != null && queryDescription.isEmpty()) {
+		    	queryDescription = null;
+		    }
 		//	@RequestParam(name = "category", required = false)Integer categoryId, l) {
 	
 		//Optional <Category> category=categoryRepo.findById(categoryId);
