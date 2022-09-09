@@ -33,8 +33,8 @@ public class Comment {
 		@Column(nullable = false)
 		private String email;
 		
-		@ManyToMany(mappedBy = "comments")
-		private List<Recipe> recipes;
+		@ManyToOne
+		private Recipe recipes;
 		
 		
 	//GETTER E SETTER
