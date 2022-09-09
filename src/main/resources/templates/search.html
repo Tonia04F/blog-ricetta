@@ -19,6 +19,7 @@
 		<main>
 		
 			<div class="container-fluid">
+			
 						</hr>
 						
 						 <div th:if="${#lists.isEmpty(ListSub)}">
@@ -29,14 +30,12 @@
 		        <table class="table mb-5" style="color: black;">
 		          <thead>
 		            <tr>
-		              <th>title</th>
+		              <th>Nome</th>
+		              <th>Tempo di preparazione</th>
+		              <th>Difficolta</th>
 		              <th>Descrizione</th>
-		              <th>ingredientAmount</th>
-		              <th>preparationTime</th>
-		              <th>difficulty</th>
-		              <th>description</th>
-		              <th>date</th>
-		              <th>categorie</th>
+		              <th>Data di pubblicazione</th>
+		              <th>Categoria</th>
 		            </tr>
 		          </thead>
 		
@@ -49,7 +48,7 @@
 		              <td th:text="${t.difficulty}"></td>
 		              <td th:text="${t.description}"></td>
 		              <td th:text="${t.publicationDate}"></td>
-		              <td th:text="${t.category}"></td>
+		              <td th:text="${t.category.name}"></td>
 		              
 		              <td>
 			  				<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">

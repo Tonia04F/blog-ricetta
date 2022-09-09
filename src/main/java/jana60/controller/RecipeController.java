@@ -28,6 +28,18 @@ import jana60.repository.RecipeRepository;
 @Controller
 @RequestMapping("/")
 public class RecipeController {
+	
+	//ADMIN- USER
+	@GetMapping("/user")
+	public String user() {
+		return "user";
+	}
+	
+	@GetMapping("/admin")
+	public String admin() {
+		return "admin";
+	}
+	
 
 	@Autowired
 	public RecipeRepository recipeRepo;
@@ -80,10 +92,10 @@ public class RecipeController {
 
 		
 		if(category.isPresent()) {
-			List<Recipe> results = recipeRepo.findByTitleContainingOrDescriptionContainingOrCategory(queryTitle, queryDescription, category.get());
+			List<Recipe> results = recipeRepo.findByTitleContainingAndDescriptionContainingAndCategory(queryTitle, queryDescription, category.get());
 			ListSub.addAll(results);
 		}else {
-			ListSub = recipeRepo.findByTitleContainingOrDescriptionContainingOrCategory(queryTitle, queryDescription, null);
+			ListSub = recipeRepo.findByTitleContainingAndDescriptionContainingAndCategory(queryTitle, queryDescription, null);
 		}
 		
 		model.addAttribute("description", queryDescription);
