@@ -51,6 +51,8 @@ public class Recipe {
 	
 	@ManyToMany
 	private List<Comment> comments;
+	
+	
 
 	//GETTERS AND SETTERS
 	
