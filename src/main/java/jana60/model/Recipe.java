@@ -149,17 +149,17 @@ public class Recipe {
 		
 		return formattedDate;*/
 		
-	/*public void isVegan() {
+	public void isVegan() {
 		
 		for (Ingredient ing : ingredients) {
 			
-			if(ing.isVegan())
+			if(ing.getIsVegan())
 				isVegan = true;
 			else
 				isVegan = false;
 			
 		}
 		
-	}*/
+	}
 	
 }
