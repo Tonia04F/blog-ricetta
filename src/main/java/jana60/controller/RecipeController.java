@@ -42,6 +42,7 @@ public class RecipeController {
 		List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
 		model.addAttribute("ListSub", ListSub);
 		
+
 		List<Recipe> List7gg = new ArrayList<>();
 		for(Recipe r : ListSub) {
 			if(r.getPublicationDate().isAfter(LocalDate.of (2022, 9, 9))) {
@@ -49,6 +50,7 @@ public class RecipeController {
 			}
 		}
 		model.addAttribute("List7gg", List7gg);
+
 		return "admin";
 	}
 	
