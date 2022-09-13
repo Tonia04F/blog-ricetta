@@ -55,7 +55,7 @@ public class Recipe {
 	private List<Comment> comments;
 	
 	@OneToMany
-	private List<Image> image;
+	private List<Image> images;
 
 	//GETTERS AND SETTERS
 	
@@ -129,11 +129,11 @@ public class Recipe {
 	}
 
 	public List<Image> getImage() {
-		return image;
+		return images;
 	}
 
-	public void setImage(List<Image> image) {
-		this.image = image;
+	public void setImage(List<Image> images) {
+		this.images = images;
 	}
 
 
