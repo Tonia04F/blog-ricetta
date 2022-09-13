@@ -24,7 +24,7 @@ public class ImageService {
 	private RecipeRepository recipeRepo;
 	
 	
-	//Creiamo lista di immagini per pizza con ID specifico
+	//Creiamo lista di immagini per ricetta con ID specifico
 		public List<Image> getImageByRecipeId(Integer recipeId)
 		{
 			

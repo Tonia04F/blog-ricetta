@@ -23,6 +23,7 @@ import jana60.model.Recipe;
 import jana60.model.Category;
 import jana60.repository.IngredientRepository;
 import jana60.repository.CategoryRepository;
+import jana60.repository.ImageRepository;
 import jana60.repository.RecipeRepository;
 
 @Controller
@@ -36,7 +37,10 @@ public class RecipeController {
 	}
 	
 	@GetMapping("/admin")
-	public String admin() {
+	public String admin(Model model) {
+		List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
+
+        model.addAttribute("ListSub", ListSub);
 		return "admin";
 	}
 	
@@ -49,6 +53,9 @@ public class RecipeController {
 	
 	@Autowired
 	public CategoryRepository categoryRepo;
+	
+	@Autowired
+	public ImageRepository imageRepo;
 	
 	@GetMapping
 	public String homePage(Model model) 

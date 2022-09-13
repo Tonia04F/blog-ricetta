@@ -48,7 +48,7 @@
 			<!--  inizio lista (model attribute imageList) -->
 			<div class="row">
 				<div class="col-3" th:each="img : ${imageList}">
-				<img th:src="@{|/image/${img.id}/content|}" class="img-fluid" alt="">
+				<img th:src="@{|/image/${t.image.id}/content|}" class="img-fluid" alt="">
 					
 		    			</div>
 					</div>

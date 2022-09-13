@@ -1,6 +1,7 @@
 package jana60.model;
 
 import java.time.LocalDate;
+
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -52,7 +54,8 @@ public class Recipe {
 	@ManyToMany
 	private List<Comment> comments;
 	
-	
+	@OneToMany
+	private List<Image> image;
 
 	//GETTERS AND SETTERS
 	
@@ -124,6 +127,16 @@ public class Recipe {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	public List<Image> getImage() {
+		return image;
+	}
+
+	public void setImage(List<Image> image) {
+		this.image = image;
+	}
+
+
 	
 	
 	//METHODS OF THE CLASS
