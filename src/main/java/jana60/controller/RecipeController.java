@@ -1,5 +1,6 @@
 package jana60.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,10 +38,14 @@ public class RecipeController {
 	}
 	
 	@GetMapping("/admin")
-	public String admin(Model model) {
+	public String admin(Model model, LocalDate publicationDate) {
 		List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
-
-        model.addAttribute("ListSub", ListSub);
+		model.addAttribute("ListSub", ListSub);
+		
+		List<Recipe> List7gg = (List<Recipe>) recipeRepo.findByDate(publicationDate);
+		if(publicationDate.isAfter(LocalDate.of (2022, 9, 9))) {
+			model.addAttribute("List7gg", List7gg);
+		}
 		return "admin";
 	}
 	
