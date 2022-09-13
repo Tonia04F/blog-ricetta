@@ -38,14 +38,17 @@ public class RecipeController {
 	}
 	
 	@GetMapping("/admin")
-	public String admin(Model model, LocalDate publicationDate) {
+	public String admin(Model model) {
 		List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
 		model.addAttribute("ListSub", ListSub);
 		
-		List<Recipe> List7gg = (List<Recipe>) recipeRepo.findByDate(publicationDate);
-		if(publicationDate.isAfter(LocalDate.of (2022, 9, 9))) {
-			model.addAttribute("List7gg", List7gg);
+		List<Recipe> List7gg = new ArrayList<>();
+		for(Recipe r : ListSub) {
+			if(r.getPublicationDate().isAfter(LocalDate.of (2022, 9, 9))) {
+				List7gg.add(r);
+			}
 		}
+		model.addAttribute("List7gg", List7gg);
 		return "admin";
 	}
 	

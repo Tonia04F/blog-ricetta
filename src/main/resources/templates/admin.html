@@ -21,7 +21,7 @@
   		
   		    <div class="container text-center w-75 " style="color: rgb(0, 0, 0); padding-top:10%;">
 
-        <h3>Soddisfa il tuo appetito con queste deliziose ricette!</h3>
+        <h3>Lista di ricette complete</h3>
 
          <div th:if="${#lists.isEmpty(ListSub)}">
 	        <h1>Spiacenti, non è disponibile una lista di ricette</h1>
@@ -71,6 +71,58 @@
           </tbody>
         </table>
       </div>
+   
+    
+    <h3>Lista di ricette degli ultimi 7 giorni</h3>
+    
+     <div th:if="${#lists.isEmpty(List7gg)}">
+	        <h1>Spiacenti, non è disponibile una lista di ricette</h1>
+	      </div>
+      <div th:unless="${#lists.isEmpty(List7gg)}" style="color: aliceblue;">
+      
+        <table class="table mb-5" style="color: black;">
+          <thead>
+            <tr>
+                      <th>Nome</th>
+		              <th>Tempo di preparazione</th>
+		              <th>Difficolta</th>
+		              <th>Descrizione</th>
+		              <th>Data di pubblicazione</th>
+		              <th>Categoria</th>
+		              <th>Action</th>
+		              
+            </tr>
+          </thead>
+
+
+          <tbody>
+            <tr th:each="t : ${List7gg}">
+              <td th:text="${t.title}"></td>
+              <td th:text="${t.preparationTime}"></td>
+              <td th:text="${t.difficulty}"></td>
+              <td th:text="${t.description}"></td>
+              <td th:text="${t.publicationDate}"></td>
+           
+              <td>
+	  				<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
+	  					<i class="fa-solid fa-trash-can"></i>
+	  				</a>
+
+					<a class="btn btn-primary" th:href="@{|/edit/${t.id}|}" title="Edit">
+	  					<i class="fa-solid fa-pen-to-square"></i>
+	  				</a>
+	  				
+	  				<a class="btn btn-primary" th:href="@{|/image/${t.id}|}" title="Edit">
+	  					<i class="fa-solid fa-images"></i>
+	  				</a>
+	  				
+	  			</td>
+
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     
     <div class="text-center" style="margin-top:10px;">
@@ -89,7 +141,7 @@
    <div class="text-center" style="margin-top:10px;">
                 <a th:href="@{/category}"  role="button" class="btn btn-warning me-3 rounded-3 text-dark fw-bold">Aggiungi una categoria</a>
                          </div>
-  	
+  	 </div>
   	</body>
   
 </html>

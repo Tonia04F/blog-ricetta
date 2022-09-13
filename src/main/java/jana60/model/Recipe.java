@@ -136,7 +136,7 @@ public class Recipe {
 		this.images = images;
 	}
 
-
+	
 	
 	
 	//METHODS OF THE CLASS
