@@ -29,7 +29,7 @@
 	    	
 	    	<div class="mb-3">
 	    	
-					<label class ="form-label" for ="title">Title</label>
+					<label class ="form-label" for ="title">Titolo della ricetta</label>
 					<input type="text" id="title" class ="form-controll" th:field="*{title}">
 					
 			</div>
@@ -38,28 +38,34 @@
 					
 			<div class="mb-3">
 			
-				<label class ="form-label" for ="preparationTime">Prep time</label>
+				<label class ="form-label" for ="preparationTime">Tempo di preparazione:</label>
 				<input type="number" id="preparationTime" class ="form-controll" th:field="*{preparationTime}">
 			
 			</div>
 					
 			<div class="mb - 3">
-				
-				<label class="form-label" for="difficulty">Difficulty</label>
-				<input type="number" id="difficulty" class="form-control" th:field="*{difficulty}">
 			
+				<label class ="form-label" for ="difficulty">Difficolt&agrave</label>
+				<select id="difficulty" class="form-control" th:field="*{difficulty}">
+                	
+                	<option th:value="1" selected>Facile</option>
+                    <option th:value="2">Medio</option>
+                    <option th:value="3">Difficile</option>
+                    
+                </select>
+                            
 			</div>
 					
 			<div class="mb - 3">
 						
-				<label class="form-label" for="description">Description</label>
+				<label class="form-label" for="description">Preparazione</label>
 				<input type="text" id="description" class="form-control" th:field="*{description}">
 				
 					
 			</div>
 			
 			<div class="mb - 3">
-					<label class="form-label" for="publicationDate">publicationDate</label>
+					<label class="form-label" for="publicationDate">Data di pubblicazione</label>
 					<input type="date" id="description" class="form-control" th:field="*{publicationDate}">
 			</div>
 			

@@ -13,7 +13,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -39,6 +40,8 @@ public class Recipe {
 	
 	private Integer preparationTime;
 	
+	@Min(value=1)
+	@Max(value=3)
 	private Integer difficulty;
 	
 	@Lob
