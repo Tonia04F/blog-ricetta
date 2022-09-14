@@ -75,8 +75,6 @@ public class Recipe {
 		this.title = title;
 	}
 
-	
-
 	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
@@ -128,14 +126,6 @@ public class Recipe {
 		this.category = category;
 	}
 
-	public List<Image> getImage() {
-		return images;
-	}
-
-	public void setImage(List<Image> images) {
-		this.images = images;
-	}
-
 	public Boolean getIsVegan() {
 		return isVegan;
 	}
@@ -159,9 +149,6 @@ public class Recipe {
 	public void setImages(List<Image> images) {
 		this.images = images;
 	}
-
-	
-	
 	
 	//METHODS OF THE CLASS
 	
@@ -178,6 +165,7 @@ public class Recipe {
 		for (Ingredient ing : ingredients) {
 			
 			if(ing.getIsVegan())
+
 				this.isVegan = true;
 			else {
 				
@@ -185,9 +173,9 @@ public class Recipe {
 				break;
 				
 			}
-			
+
 		}
-		
+	
 	}
 	
 }
