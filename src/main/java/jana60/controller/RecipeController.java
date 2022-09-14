@@ -21,6 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import jana60.model.Recipe;
 import jana60.model.Category;
+import jana60.model.Ingredient;
 import jana60.repository.IngredientRepository;
 import jana60.repository.CategoryRepository;
 import jana60.repository.ImageRepository;
@@ -123,6 +124,7 @@ public class RecipeController {
 	public String SubForm(Model model) {
 		
 		model.addAttribute("NewRecipe",new Recipe());
+		
 		model.addAttribute("ingredientsList", ingredientRepo.findAllByOrderByName());
 		model.addAttribute("categoryList", categoryRepo.findAll());	
 	
@@ -140,6 +142,7 @@ public class RecipeController {
 			 
 		 }
 		 
+		 formSub.isVegan();
 		 recipeRepo.save(formSub);
 		 
 	     return "redirect:/";

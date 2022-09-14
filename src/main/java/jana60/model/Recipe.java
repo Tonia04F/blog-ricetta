@@ -136,7 +136,31 @@ public class Recipe {
 		this.images = images;
 	}
 
+	public Boolean getIsVegan() {
+		return isVegan;
+	}
 
+	public void setIsVegan(Boolean isVegan) {
+		this.isVegan = isVegan;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
+
+	
 	
 	
 	//METHODS OF THE CLASS
@@ -149,17 +173,21 @@ public class Recipe {
 		
 		return formattedDate;*/
 		
-	/*public void isVegan() {
+	public void isVegan() {
 		
 		for (Ingredient ing : ingredients) {
 			
-			if(ing.isVegan())
-				isVegan = true;
-			else
-				isVegan = false;
+			if(ing.getIsVegan())
+				this.isVegan = true;
+			else {
+				
+				this.isVegan = false;
+				break;
+				
+			}
 			
 		}
 		
-	}*/
+	}
 	
 }
