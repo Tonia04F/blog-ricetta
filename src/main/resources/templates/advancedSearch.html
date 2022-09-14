@@ -1,6 +1,4 @@
-    	
-    	
-    	<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 	
@@ -19,37 +17,44 @@
 			
 		</header>
     	
-			 <div class="container">
-						 
-			  
-			    
+    	<main>
+    	
+			<div class="container">
+					
 			    <form action="/search">
 			    	Titolo<input class="form-control" type="text" name="queryTitle">
 			    	Description <input class="form-control" type="text" name="description">
 			    	<!--Categorie <input class="form-control" type="text" name="category">-->
 			    	
 			    	
-				<div class="col-3">
-			          <label class="form-label" for="categoria">Categoria</label>
-			          <select
-			            name="categoryId"
-			            id="categoria"
-			            class="form-control"
-			            th:value="${categoryId}"
-			          >
-			          <option th:value="0" selected></option>
-			            <option th:value="1">Antipasto</option>
-			            <option th:value="2">Primo</option>
-			            <option th:value="3">Secondo</option>
-			            <option th:value="4">Contorno</option>
-			            <option th:value="5">Dolce</option>
+					<div class="col-3">
+			        	<label class="form-label" for="categoria">Categoria</label>
+			            <select
+			           		name="categoryId"
+			            	id="categoria"
+			            	class="form-control"
+			           		th:value="${categoryId}"
+			          	>
+			          	
+				          	<option th:value="0" selected></option>
+				            <option th:value="1">Antipasto</option>
+				            <option th:value="2">Primo</option>
+				            <option th:value="3">Secondo</option>
+				            <option th:value="4">Contorno</option>
+				            <option th:value="5">Dolce</option>
+				            
 			          </select>
-		          </div>
-			    	<button>Search</button>
+			          
+		           </div>
+		           
+			       <button>Search</button>
+			    	
 			    </form>
-					 
+			    
+			</div>
+			
+		</main>	 
     	
-    	</body>
+   </body>
 	
-</html>			
-		
+</html>		
