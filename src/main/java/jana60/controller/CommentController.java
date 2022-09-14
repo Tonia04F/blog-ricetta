@@ -1,8 +1,5 @@
 package jana60.controller;
 
-import java.util.List;
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jana60.model.Comment;
-import jana60.model.Ingredient;
 import jana60.model.Recipe;
 import jana60.repository.CommentRepository;
-import jana60.repository.IngredientRepository;
 import jana60.repository.RecipeRepository;
 
 @Controller
@@ -49,7 +44,6 @@ public class CommentController {
 		   
 		formSub.setRecipes(recipeRepo.findById(recipeId).get());
 				
-				
 		if(br.hasErrors()) {
 				 
 			return "comments";
@@ -62,7 +56,7 @@ public class CommentController {
 		currentRecipe.addComment(formSub);
 		recipeRepo.save(currentRecipe);
 		
-		return "redirect:/recipeDetails/"+recipeId;
+		return "redirect:/recipeDetails/" + recipeId;
 		     
 	}
 	

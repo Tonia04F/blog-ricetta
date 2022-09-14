@@ -60,7 +60,7 @@
 				                <h5 th:text="${recipe.preparationTime}"></h5>
 								<h5>Difficoltà: </h5>
 				                <h5 th:text="${recipe.difficulty}"></h5> 
-	                 			<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+	                 			<p class="card-text"><small class="text-muted">Pubblicato il <span th:text="${recipe.publicationDate}"></span></small></p>
 	                
 	                		</div>
 	                
@@ -91,22 +91,21 @@
 				<div class="mb-3">
 		    	
 						<label class ="form-label" for ="name">Name</label>
-						<input type="text" id="name" class ="form-control" th:field="*{name}">
-						
+						<input type="text" id="name" class ="form-controll" th:field="*{name}">
+												
 				</div>
 				
 				<div class="mb-3">
 		    	
 						<label class ="form-label" for ="name">email</label>
-						<input type="text" id="email" class ="form-control" th:field="*{email}">
-						
+						<input type="text" id="email" class ="form-controll" th:field="*{email}">						
 				</div>
 				
 				<div class="mb-3">
 		    	
 						<label class ="form-label" for ="name">comment</label>
-						<input type="text" rows="3" cols="2" id="comment" class ="form-control" th:field="*{comment}">
-						
+						<input type="text" id="comment" class ="form-controll" th:field="*{comment}">						
+				
 				</div>
 				
 				<!--bottone per salvare nuova ricetta-->		
@@ -127,11 +126,11 @@
 			</ul>
 			
 			
-		<!--<div class ="alert alert-info my-5" th:unless="${recipe.comments.size() > 0}">
+			<div class ="alert alert-info my-5" th:unless="${recipe.comments.size() > 0}">
 					               
 				<h3>Non ci sono ancora commenti</h3>
 					
-			</div>-->
+			</div>
 			
 	 	</main>
   
