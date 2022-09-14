@@ -25,7 +25,13 @@
  
  			<div class="row">
  				<div class="col-4 "th:each="t : ${ListSub}">
-                    <h4 class="text-center p-3 bg-dark text-info w-100 mb-0" th:text="${t.title}"></h4>
+ 				
+ 				<div class="text-center p-3 bg-dark text-info w-100 mb-0">
+                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
+ 				</div>
+                   
+              
+                    
                     <img th:src="@{|/image/${t.id}/content|}" class="w-100" alt="">
                     <div class="shadow p-1 mb-5 bg-body rounded">
                         <ul class="list-group list-group-flush">

@@ -101,8 +101,8 @@ public class RecipeController {
 	//metodo search
 	@GetMapping("/search")
 	public String search(@RequestParam(name = "queryTitle", required = false)String queryTitle, 
-			@RequestParam(name = "description", required = false) String queryDescription, 
-			@RequestParam(name="categoryId", required = false) Integer categoryId, Model model ){
+						@RequestParam(name = "description", required = false) String queryDescription, 
+						@RequestParam(name="categoryId", required = false) Integer categoryId, Model model ){
 		
 			if (queryTitle != null && queryTitle.isEmpty()) {
 			      queryTitle = null;
@@ -110,19 +110,19 @@ public class RecipeController {
 		    if (queryDescription != null && queryDescription.isEmpty()) {
 		    	queryDescription = null;
 		    }
-	
+		  List<Recipe> ListSub = new ArrayList<>();
 		Optional <Category> category=categoryRepo.findById(categoryId);
-		List<Recipe> ListSub = new ArrayList<>();
+		
 
 		
 		if(category.isPresent()) {
-			List<Recipe> results = recipeRepo.findByTitleContainingAndDescriptionContainingAndCategory(queryTitle, queryDescription, category.get());
+			List<Recipe> results = recipeRepo.findByTitleContainingAndDescriptionContainingOrCategory(queryTitle, queryDescription, category.get());
 			ListSub.addAll(results);
 		}else {
-			ListSub = recipeRepo.findByTitleContainingAndDescriptionContainingAndCategory(queryTitle, queryDescription, null);
+			ListSub = recipeRepo.findByTitleContainingAndDescriptionContainingOrCategory(queryTitle, queryDescription, null);
 		}
 		
-		model.addAttribute("description", queryDescription);
+		model.addAttribute("queryDescription", queryDescription);
 		model.addAttribute("category", category);
 		model.addAttribute("queryTitle", queryTitle);
 		model.addAttribute("ListSub", ListSub);
@@ -132,7 +132,9 @@ public class RecipeController {
 		//advanced search
 	 @GetMapping("/advancedSearch")
 	  public String advancedSearch() {
-	    return "advancedSearch";
+		 
+			
+		 return "advancedSearch";
 	  }
 			
 	

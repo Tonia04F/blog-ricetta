@@ -41,7 +41,8 @@
 			 <ul class="list-group" th:if="${categories.size() > 0}">
 			<li class="list-group-item" th:each="c : ${categories}">
 			  		<span th:text="${c.name}"></span>
-			  
+			  	  	<a class="btn btn-primary" th:href="@{|/category/delete/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
+
 			</li>
 		</ul>
 	
