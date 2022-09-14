@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -46,5 +47,14 @@ public class RecipeCategoryController {
 			     return "redirect:/category";
 			     
 			}
+			
+			//metodo per cancellare ricetta
+			@GetMapping("/delete/{id}")
+			  public String deleteIngredients(@PathVariable("id") Integer categoryId) {
+				
+				  categoryRepo.deleteById(categoryId);
+				  return "redirect:/category";
+				  
+			  }
 			
 }

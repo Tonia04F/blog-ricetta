@@ -1,15 +1,21 @@
 package jana60.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jana60.model.Ingredient;
 import jana60.model.Recipe;
@@ -52,6 +58,23 @@ public class IngredientController {
 	     
 	}
 	
+	//metodo per cancellare ingr
+	@GetMapping("/delete/{id}")
+	  public String deleteIngredients(@Valid @PathVariable("id") Integer ingredientId, RedirectAttributes ra) {
+		Optional<Ingredient> selezionaId = ingredientRepo.findById(ingredientId);
+
+        if(selezionaId.isPresent()) {
+
+            ingredientRepo.deleteById(ingredientId);
+            ra.addFlashAttribute("successMessage", "L'ingrediente " + selezionaId.get().getName() + " è stata eliminata.");
+
+            return "redirect:/ingredients";
+
+        } else 
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'ingrediente che stai provando ad eliminare non esiste");
+
+    }
+	  
 }
 
 

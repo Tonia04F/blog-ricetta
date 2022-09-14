@@ -59,5 +59,8 @@ public class CommentController {
 		return "redirect:/recipeDetails/"+recipeId;
 		     
 	}
+	
+	
+	
 		
 }
