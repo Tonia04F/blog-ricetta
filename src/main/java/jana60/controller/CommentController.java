@@ -48,7 +48,7 @@ public class CommentController {
 	public String save(@Valid  @PathVariable(name="recipeId")Integer recipeId, @ModelAttribute("newComment") Comment formSub,BindingResult br) {
 		   
 		formSub.setRecipes(recipeRepo.findById(recipeId).get());
-			
+				
 		if(br.hasErrors()) {
 				 
 			return "comments";

@@ -105,9 +105,18 @@
 					<!--commenti-->
 			<h2>Commenti</h2>
 				
+	     	<ul th:each="c : ${recipe.comments}">
+			
+				<li th:text="${c.getName()}"></li>
+				<li th:text="${c.getEmail()}"></li>
+	
+				<li th:text="${c.getComment()}"></li>
+				
+				
+			</ul>
 	     
-	     
-	     	<ul th:each="c : ${listComment}">
+	     	<!--
+			<ul th:each="c : ${listComment}">
 			
 				<li th:text="${c.name}"></li>
 				<li th:text="${c.email}"></li>
@@ -116,6 +125,7 @@
 				
 				
 			</ul>
+			-->
 			
 		<!--<div class ="alert alert-info my-5" th:unless="${recipe.comments.size() > 0}">
 					               
