@@ -36,6 +36,7 @@ public class Comment {
 		@ManyToOne
 		private Recipe recipes;
 		
+		private String comment;
 		
 	//GETTER E SETTER
 		public Integer getId() {
@@ -45,6 +46,15 @@ public class Comment {
 
 		public void setId(Integer id) {
 			this.id = id;
+		}
+
+		public Recipe getRecipes() {
+			return recipes;
+		}
+
+
+		public void setRecipes(Recipe recipes) {
+			this.recipes = recipes;
 		}
 
 
@@ -78,5 +88,5 @@ public class Comment {
 		}
 
 
-		private String comment;
+		
 }
