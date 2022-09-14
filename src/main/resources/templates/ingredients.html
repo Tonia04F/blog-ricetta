@@ -80,10 +80,13 @@
 				
 			  		<span th:text="${i.name}"></span>
 			  		
+			  		
+	  					<a class="btn btn-primary" th:href="@{|/ingredients/delete/${i.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
 				</li>
 				
 			</ul>
 		
+	  				</a>
 			<div class ="alert alert-info my-5" th:unless="${ingredients.size() > 0}">
 			
 				<h3>Non ci sono ancora ingredienti</h3>

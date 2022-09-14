@@ -30,15 +30,18 @@
 		        	<div class="row g-0">
 		        	
 		            	<div class="col-md-8">
+
+		            	<img th:src="@{|/image/${recipe.id}/content|}" class="w-100" alt="">
+
+
 		            	
-		                	<img th:src="@{|/image/${recipe.id}/content|}" class="img-fluid rounded-start" alt="..." style="width: 1000px">
-	              		
+
 	              		</div>
 	              		
 	              		<div class="col-md-4">
 	              		
 	                		<div class="card-body">
-	                		
+
 	                 			<h5 class="card-title">Vegetariano</h5>
 	                            <h5>Tempo di preparazione: </h5>
 				                <h5 th:text="${recipe.preparationTime}"></h5>
@@ -95,7 +98,7 @@
 				
 				<!--bottone per salvare nuova ricetta-->		
 				<button type="submit" class="btn btn-primary mt-3">Commenta</button>
-			
+				
 			</form>
 					
 					
@@ -110,6 +113,8 @@
 				<li th:text="${c.email}"></li>
 	
 				<li th:text="${c.comment}"></li>
+				
+				
 			</ul>
 			
 		<!--<div class ="alert alert-info my-5" th:unless="${recipe.comments.size() > 0}">
