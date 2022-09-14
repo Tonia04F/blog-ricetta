@@ -159,6 +159,7 @@ public class RecipeController {
 		 }
 		 
 		 formSub.isVegan();
+		 formSub.isVegetarian();
 		 recipeRepo.save(formSub);
 		 
 	     return "redirect:/";
@@ -201,6 +202,7 @@ public class RecipeController {
         @GetMapping("/recipeDetails/{recipeId}")
         public String recipeDetails(@PathVariable(name="recipeId") Integer recipePrimaryKey, Model model ) {
             Recipe currentRecipe = recipeRepo.findById(recipePrimaryKey).get();
+            //currentRecipe.incrementViews();
             List<Comment> listComment = (List<Comment>) commentRepo.findAll();
 
             model.addAttribute("listComment", listComment);

@@ -33,6 +33,8 @@ public class Recipe {
 	
 	private Boolean isVegan;
 	
+	private Boolean isVegetarian;
+	
 	private Integer counterViews;
 	
 	public Integer getCounterViews() {
@@ -77,6 +79,14 @@ public class Recipe {
 
 	public String getTitle() {
 		return title;
+	}
+
+	public Boolean getIsVegetarian() {
+		return isVegetarian;
+	}
+
+	public void setIsVegetarian(Boolean isVegetarian) {
+		this.isVegetarian = isVegetarian;
 	}
 
 	public void setTitle(String title) {
@@ -186,9 +196,27 @@ public class Recipe {
 	
 	}
 	
+	public void isVegetarian() {
+	
+		for (Ingredient ing : ingredients) {
+			
+			if(ing.getIsVegetarian())
+
+				this.isVegetarian = true;
+			else {
+				
+				this.isVegetarian = false;
+				break;
+				
+			}
+
+		}
+	
+	}
+	
 	public void incrementViews() {
 		
-		this.counterViews++;
+		counterViews++;
 		
 	}
 	
