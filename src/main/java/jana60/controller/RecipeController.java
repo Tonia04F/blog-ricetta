@@ -195,7 +195,7 @@ public class RecipeController {
 		      
 	  	    }
 		    
-		  }
+		}
 		
 		//pagina di dettaglio ricette 
         @GetMapping("/recipeDetails/{recipeId}")
@@ -211,5 +211,5 @@ public class RecipeController {
 
         }
 		
-	 }
+}
 

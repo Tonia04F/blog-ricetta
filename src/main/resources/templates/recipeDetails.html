@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+  
+	    <th:block th:replace="fragments/resources :: head-resources"></th>
+
+	    <title th:text="${recipeId}"></title>
+    
+  	</head>
+  
+  	<body>
+  	
+  		<header>
+	 		 	
+	 		<nav th:replace="fragments/navbar :: navbar('recipes')"></nav>
+		 	
+	 	</header>
+	 	
+	 	
+	 	<!--passo la ricetta-->
+	 	<main>
+	 	
+		 	<div class="container pt-5">
+		 	
+		        <h1 class="text-center mb-3" th:text="${recipe.title}"></h1>
+		        
+		        <div class="card mb-3">
+		        
+		        	<div class="row g-0">
+		        	
+		            	<div class="col-md-8">
+		            	
+		                	<img src="img/pizza.jpeg" class="img-fluid rounded-start" alt="..." style="width: 1000px">
+	              		
+	              		</div>
+	              		
+	              		<div class="col-md-4">
+	              		
+	                		<div class="card-body">
+	                		
+	                 			<h5 class="card-title">Vegetariano</h5>
+	                            <h5>Tempo di preparazione: </h5>
+				                <h5 th:text="${recipe.preparationTime}"></h5>
+								<h5>Difficoltà: </h5>
+				                <h5 th:text="${recipe.difficulty}"></h5> 
+	                 			<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+	                
+	                		</div>
+	                
+	              		</div>
+	              
+	            	</div>
+	            	
+	        	</div>
+	        
+	        	<div class="text-center mt-2 mb-5">
+	        
+		            <h3>Descrizione</h3>
+		            <p th:text="${recipe.description}"></p>
+	            
+	        	</div>
+	       	
+			</div>  
+	     
+	    	 <!--sezione commenti-->
+	        <h3 class="text-center mb-3">Sezione commenti</h3>
+	        
+		  	<!--creo form aggiungi COMMENTO e poi devo aggiungere lista dove si vedranno i commenti aggiunti-->
+			<form 
+				id="form-commenti"
+				th:object="${newComment}"
+				th:action="@{/comments/save/{id}(id=${recipe.id})}"method="POST">
+				
+				<div class="mb-3">
+		    	
+						<label class ="form-label" for ="name">Name</label>
+						<input type="text" id="name" class ="form-controll" th:field="*{name}">
+						
+				</div>
+				
+				<div class="mb-3">
+		    	
+						<label class ="form-label" for ="name">email</label>
+						<input type="text" id="email" class ="form-controll" th:field="*{email}">
+						
+				</div>
+				
+				<div class="mb-3">
+		    	
+						<label class ="form-label" for ="name">comment</label>
+						<input type="text" id="comment" class ="form-controll" th:field="*{comment}">
+						
+				</div>
+				
+				<!--bottone per salvare nuova ricetta-->		
+				<button type="submit" class="btn btn-primary mt-3">Commenta</button>
+			
+			</form>
+					
+					
+					<!--commenti-->
+			<h2>Commenti</h2>
+				
+	     
+	     
+	     	<ul th:each="c : ${listComment}">
+			
+				<li th:text="${c.name}"></li>
+				<li th:text="${c.email}"></li>
+	
+				<li th:text="${c.comment}"></li>
+			</ul>
+			
+		<!--<div class ="alert alert-info my-5" th:unless="${recipe.comments.size() > 0}">
+					               
+				<h3>Non ci sono ancora commenti</h3>
+					
+			</div>-->
+			
+	 	</main>
+  
+		<footer class="mt-5 bg-light border border-ligt">
+		
+		    <div class="container-fluid w-75">
+		    
+		      <div class="row mt-5 d-flex justify-content-around pt-5">
+		      
+		        <div class="col-12 col-md-3 text-dark-50 text-center">
+		        
+		          <h4>LOCATION</h4>
+		          <div class="w-100 pb-2">
+		            <h8>2213 John Daniel Drive</h8>
+		          </div>  
+		          
+		          <div  class="w-100 pb-2">
+		            <h8>Clark, MO 65243</h8>
+		          </div>  
+		          
+		        </div>
+		        
+		        <div class="d-flex flex-column col-12 col-md-3 text-dark-50 text-center">
+		          <div class="w-100">
+		            <h4>I NOSTRI SOCIAL</h4>
+		          </div> 
+		          
+		          <ul class="list-group ">
+		            <li class="list-group-item">
+		              <i class="fa-brands fa-instagram"></i> 
+		              <p class="d-inline text-start">ricette.casarecce</p>
+		            </li>
+		            <li class="list-group-item">
+		              <i class="fa-brands fa-facebook"></i>
+		              <p class="d-inline text-start">Ricette Casarecce</p>
+		            </li>   
+		          </ul>  
+		          
+		        </div>
+		        <div class="col-12 text-dark-50 text-center pb-5 pt-2 pt-md-5">
+		          <p>Copyright &copy; Ricette Casarecce 2022</p>
+		        </div>
+		        
+		      </div>
+		      
+		    </div>
+		    
+		</footer>
+  	
+  		<!--like-->
+  	
+  	</body>
+  	
+</html>
