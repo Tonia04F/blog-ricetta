@@ -186,4 +186,10 @@ public class Recipe {
 	
 	}
 	
+	public void incrementViews() {
+		
+		this.counterViews++;
+		
+	}
+	
 }
