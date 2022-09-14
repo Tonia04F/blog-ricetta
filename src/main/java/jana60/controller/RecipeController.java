@@ -22,7 +22,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import jana60.model.Recipe;
 import jana60.model.Category;
-import jana60.model.Ingredient;
 import jana60.repository.IngredientRepository;
 import jana60.repository.CategoryRepository;
 import jana60.repository.ImageRepository;
@@ -31,6 +30,18 @@ import jana60.repository.RecipeRepository;
 @Controller
 @RequestMapping("/")
 public class RecipeController {
+	
+	@Autowired
+	public RecipeRepository recipeRepo;
+	
+	@Autowired
+	public IngredientRepository ingredientRepo;
+	
+	@Autowired
+	public CategoryRepository categoryRepo;
+	
+	@Autowired
+	public ImageRepository imageRepo;
 	
 	//ADMIN- USER
 	@GetMapping("/user")
@@ -56,17 +67,7 @@ public class RecipeController {
 	}
 	
 
-	@Autowired
-	public RecipeRepository recipeRepo;
 	
-	@Autowired
-	public IngredientRepository ingredientRepo;
-	
-	@Autowired
-	public CategoryRepository categoryRepo;
-	
-	@Autowired
-	public ImageRepository imageRepo;
 	
 	@GetMapping
 	public String homePage(Model model) 

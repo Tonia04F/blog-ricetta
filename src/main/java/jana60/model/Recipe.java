@@ -2,7 +2,6 @@ package jana60.model;
 
 import java.time.LocalDate;
 
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -35,6 +33,16 @@ public class Recipe {
 	
 	private Boolean isVegan;
 	
+	private Integer counterViews;
+	
+	public Integer getCounterViews() {
+		return counterViews;
+	}
+
+	public void setCounterViews(Integer counterViews) {
+		this.counterViews = counterViews;
+	}
+
 	private Integer preparationTime;
 	
 	private Integer difficulty;
