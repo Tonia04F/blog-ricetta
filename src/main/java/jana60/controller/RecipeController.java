@@ -22,8 +22,10 @@ import org.springframework.web.server.ResponseStatusException;
 
 import jana60.model.Recipe;
 import jana60.model.Category;
+import jana60.model.Comment;
 import jana60.repository.IngredientRepository;
 import jana60.repository.CategoryRepository;
+import jana60.repository.CommentRepository;
 import jana60.repository.ImageRepository;
 import jana60.repository.RecipeRepository;
 
@@ -42,6 +44,9 @@ public class RecipeController {
 	
 	@Autowired
 	public ImageRepository imageRepo;
+	
+	@Autowired
+	public CommentRepository commentRepo;
 	
 	//ADMIN- USER
 	@GetMapping("/user")
@@ -191,6 +196,20 @@ public class RecipeController {
 	  	    }
 		    
 		  }
+		
+		//pagina di dettaglio ricette 
+        @GetMapping("/recipeDetails/{recipeId}")
+        public String recipeDetails(@PathVariable(name="recipeId") Integer recipePrimaryKey, Model model ) {
+            Recipe currentRecipe = recipeRepo.findById(recipePrimaryKey).get();
+            List<Comment> listComment = (List<Comment>) commentRepo.findAll();
+
+            model.addAttribute("listComment", listComment);
+            model.addAttribute("recipe", currentRecipe);
+            model.addAttribute("newComment", new Comment());
+
+            return "recipeDetails";
+
+        }
 		
 	 }
 
