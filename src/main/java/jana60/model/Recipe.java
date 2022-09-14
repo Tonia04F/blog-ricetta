@@ -35,7 +35,7 @@ public class Recipe {
 	
 	private Boolean isVegetarian;
 	
-	private Integer counterViews;
+	private Integer counterViews = 0;
 	
 	public Integer getCounterViews() {
 		return counterViews;
@@ -61,7 +61,7 @@ public class Recipe {
 	@ManyToOne
 	public Category category;
 	
-	@ManyToMany
+	@OneToMany
 	private List<Comment> comments;
 	
 	@OneToMany
@@ -217,6 +217,12 @@ public class Recipe {
 	public void incrementViews() {
 		
 		counterViews++;
+		
+	}
+	
+	public Integer getCommentsNumber() {
+		
+		return comments.size();
 		
 	}
 	

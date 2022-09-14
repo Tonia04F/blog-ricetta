@@ -203,8 +203,12 @@ public class RecipeController {
 		//pagina di dettaglio ricette 
         @GetMapping("/recipeDetails/{recipeId}")
         public String recipeDetails(@PathVariable(name="recipeId") Integer recipePrimaryKey, Model model ) {
+        	
             Recipe currentRecipe = recipeRepo.findById(recipePrimaryKey).get();
-            //currentRecipe.incrementViews();
+            
+            currentRecipe.incrementViews();
+            recipeRepo.save(currentRecipe);
+            
             List<Comment> listComment = (List<Comment>) commentRepo.findAll();
 
             model.addAttribute("listComment", listComment);
