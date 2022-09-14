@@ -45,7 +45,9 @@
 
           <tbody>
             <tr th:each="t : ${ListSub}">
-              <td th:text="${t.title}"></td>
+              <td>
+              	<a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
+              </td>
               <td th:text="${t.preparationTime}"></td>
               <td th:text="${t.difficulty}"></td>
               <td th:text="${t.description}"></td>
