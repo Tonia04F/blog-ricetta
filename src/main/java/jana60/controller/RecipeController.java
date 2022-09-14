@@ -54,6 +54,9 @@ public class RecipeController {
 		return "user";
 	}
 	
+
+	
+
 	@GetMapping("/admin")
 	public String admin(Model model) {
 		List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
@@ -98,7 +101,7 @@ public class RecipeController {
 		
 	}
 	
-	//metodo search
+	/*//metodo search
 	@GetMapping("/search")
 	public String search(@RequestParam(name = "queryTitle", required = false)String queryTitle, 
 						@RequestParam(name = "description", required = false) String queryDescription, 
@@ -110,6 +113,7 @@ public class RecipeController {
 		    if (queryDescription != null && queryDescription.isEmpty()) {
 		    	queryDescription = null;
 		    }
+		    
 		  List<Recipe> ListSub = new ArrayList<>();
 		Optional <Category> category=categoryRepo.findById(categoryId);
 		
@@ -129,13 +133,38 @@ public class RecipeController {
 		return "search";
 		
 	}
+	
+
 		//advanced search
 	 @GetMapping("/advancedSearch")
 	  public String advancedSearch() {
 		 
 			
 		 return "advancedSearch";
-	  }
+	  }*/
+	
+	@GetMapping("/advancedSearch")
+	public String advancedSearch() {
+		return"/search";
+	}
+	//search 2
+	@GetMapping("/search")
+	public String search(@RequestParam(name="queryTitle")String queryTitle,
+						@RequestParam(name="queryDescription", required =false)String queryDescription, Model model) {
+		
+		if(queryTitle != null && queryTitle.isEmpty()) {
+			queryTitle = null;
+		}
+		if(queryDescription!= null && queryDescription.isEmpty()) {
+			queryDescription = null;
+		}
+		
+		List<Recipe> recipeList = recipeRepo.findByTitleContainingOrDescriptionContainingIgnoreCase(queryTitle, queryDescription);
+		
+		model.addAttribute("ListSub",recipeList);
+		return"homePage";
+	}
+	
 			
 	
 	@GetMapping("/add")
