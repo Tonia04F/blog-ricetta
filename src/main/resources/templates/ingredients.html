@@ -38,6 +38,10 @@
 							<input th:field="*{name}" type"text" class="form-control" placeholder="Nome ingrediente" aria-label="Aggiungi ingrediente"
 						 	aria-describedby="ingrediente-nutton" th:errorClass="is-invalid">
 						</div> 	
+						<div class="mb-3">
+							<input th:field="*{ingredientAmount}" type"text" class="form-control" placeholder="Quantità ingrediente" aria-label="Aggiungi ingrediente"
+						 	aria-describedby="ingrediente-nutton" th:errorClass="is-invalid">
+						</div> 						
 						<div class="mb-3">	
 						
 						 	<input type="checkbox"  id="isVegan" value="true" th:field="*{isVegan}"  />
