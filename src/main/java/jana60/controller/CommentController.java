@@ -49,13 +49,19 @@ public class CommentController {
 		   
 		formSub.setRecipes(recipeRepo.findById(recipeId).get());
 				
+				
 		if(br.hasErrors()) {
 				 
 			return "comments";
 				 
 		}
 			 
-		commentRepo.save(formSub);	 
+		commentRepo.save(formSub);	
+		
+		Recipe currentRecipe = recipeRepo.findById(recipeId).get();
+		currentRecipe.addComment(formSub);
+		recipeRepo.save(currentRecipe);
+		
 		return "redirect:/recipeDetails/"+recipeId;
 		     
 	}

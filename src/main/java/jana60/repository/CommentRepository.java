@@ -6,5 +6,5 @@ import jana60.model.Comment;
 
 
 public interface CommentRepository extends CrudRepository<Comment, Integer>  {
-
+	
 }

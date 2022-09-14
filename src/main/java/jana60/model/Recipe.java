@@ -37,14 +37,6 @@ public class Recipe {
 	
 	private Integer counterViews = 0;
 	
-	public Integer getCounterViews() {
-		return counterViews;
-	}
-
-	public void setCounterViews(Integer counterViews) {
-		this.counterViews = counterViews;
-	}
-
 	private Integer preparationTime;
 	
 	private Integer difficulty;
@@ -76,7 +68,14 @@ public class Recipe {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public Integer getCounterViews() {
+		return counterViews;
+	}
 
+	public void setCounterViews(Integer counterViews) {
+		this.counterViews = counterViews;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -222,7 +221,13 @@ public class Recipe {
 	
 	public Integer getCommentsNumber() {
 		
-		return comments.size();
+		return this.comments.size();
+		
+	}
+	
+	public void addComment(Comment comment) {
+		
+		this.comments.add(comment);
 		
 	}
 	

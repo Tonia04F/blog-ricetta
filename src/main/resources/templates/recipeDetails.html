@@ -18,6 +18,19 @@
 	 	</header>
 	 	
 	 	
+	 	<h1>
+		
+		PER SIMONE
+		Da usare per stampare categoria e ingredienti con relative quantità <br>
+		
+		th:text="${recipe.category.name}"
+		th:each=" c : ${recipe.ingrendients}"
+		th:text="${c.name}" & th:text="${c.ingredientAmount}"
+		
+	 	</h1>
+	 	
+	 	
+	 	
 	 	<!--passo la ricetta-->
 	 	<main>
 	 	
@@ -78,21 +91,21 @@
 				<div class="mb-3">
 		    	
 						<label class ="form-label" for ="name">Name</label>
-						<input type="text" id="name" class ="form-controll" th:field="*{name}">
+						<input type="text" id="name" class ="form-control" th:field="*{name}">
 						
 				</div>
 				
 				<div class="mb-3">
 		    	
 						<label class ="form-label" for ="name">email</label>
-						<input type="text" id="email" class ="form-controll" th:field="*{email}">
+						<input type="text" id="email" class ="form-control" th:field="*{email}">
 						
 				</div>
 				
 				<div class="mb-3">
 		    	
 						<label class ="form-label" for ="name">comment</label>
-						<input type="text" id="comment" class ="form-controll" th:field="*{comment}">
+						<input type="text" rows="3" cols="2" id="comment" class ="form-control" th:field="*{comment}">
 						
 				</div>
 				
@@ -104,28 +117,15 @@
 					
 					<!--commenti-->
 			<h2>Commenti</h2>
-				
-	     	<ul th:each="c : ${recipe.comments}">
-			
-				<li th:text="${c.getName()}"></li>
-				<li th:text="${c.getEmail()}"></li>
-	
-				<li th:text="${c.getComment()}"></li>
-				
-				
-			</ul>
-	     
-	     	<!--
-			<ul th:each="c : ${listComment}">
+	     	
+			<ul th:each="c : ${recipe.comments}">
 			
 				<li th:text="${c.name}"></li>
 				<li th:text="${c.email}"></li>
-	
 				<li th:text="${c.comment}"></li>
 				
-				
 			</ul>
-			-->
+			
 			
 		<!--<div class ="alert alert-info my-5" th:unless="${recipe.comments.size() > 0}">
 					               

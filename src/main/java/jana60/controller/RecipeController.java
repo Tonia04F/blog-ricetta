@@ -179,7 +179,7 @@ public class RecipeController {
 	
 		//metodo che modifica una ricetta 
 		@GetMapping("/edit/{id}")
-		  public String edit(@PathVariable("id") Integer recipeId, Model model) {
+		public String edit(@PathVariable("id") Integer recipeId, Model model) {
 		    Optional<Recipe> result = recipeRepo.findById(recipeId);
 
 		  
