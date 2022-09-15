@@ -63,13 +63,13 @@ public class RecipeController {
 		model.addAttribute("ListSub", ListSub);
 		
 
-		List<Recipe> List7gg = new ArrayList<>();
+		/*List<Recipe> List7gg = new ArrayList<>();
 		for(Recipe r : ListSub) {
 			if(r.getPublicationDate().isAfter(LocalDate.of (2022, 9, 9))) {
 				List7gg.add(r);
 			}
 		}
-		model.addAttribute("List7gg", List7gg);
+		model.addAttribute("List7gg", List7gg);*/
 
 		return "admin";
 	}
@@ -150,18 +150,25 @@ public class RecipeController {
 	//search 2
 	@GetMapping("/search")
 	public String search(@RequestParam(name="queryTitle")String queryTitle,
-						@RequestParam(name="queryDescription", required =false)String queryDescription, Model model) {
+						@RequestParam(name="queryDescription", required =false)String queryDescription,
+						Model model) {
 		
 		if(queryTitle != null && queryTitle.isEmpty()) {
 			queryTitle = null;
 		}
 		if(queryDescription!= null && queryDescription.isEmpty()) {
 			queryDescription = null;
+			
 		}
 		
-		List<Recipe> recipeList = recipeRepo.findByTitleContainingOrDescriptionContainingIgnoreCase(queryTitle, queryDescription);
+		 List<Recipe>ListSub = recipeRepo.findByTitleContainingOrDescriptionContaining(queryTitle, queryDescription);
+
 		
-		model.addAttribute("ListSub",recipeList);
+			
+
+		//model.addAttribute("categoryId", category);
+
+		model.addAttribute("ListSub",ListSub);
 		return"homePage";
 	}
 	

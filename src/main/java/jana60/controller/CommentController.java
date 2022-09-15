@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jana60.model.Comment;
 import jana60.model.Ingredient;
@@ -60,7 +63,22 @@ public class CommentController {
 		     
 	}
 	
-	
+	//metodo per cancellare ingr
+		@GetMapping("/delete/{recipeId}")
+		  public String deleteIngredients(@Valid @PathVariable("id") Integer commentId, RedirectAttributes ra) {
+			Optional<Comment> selezionaId = commentRepo.findById(commentId);
+
+	        if(selezionaId.isPresent()) {
+
+	            commentRepo.deleteById(commentId);
+	            ra.addFlashAttribute("successMessage", "il commento" + selezionaId.get().getName() + " è stata eliminata.");
+
+	            return "redirect:/recipeDetails";
+
+	        } else 
+	            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'ingrediente che stai provando ad eliminare non esiste");
+
+	    }
 	
 		
 }
