@@ -119,13 +119,15 @@
 	     	
 			<ul th:each="c : ${recipe.comments}">
 			
-				<li th:text="${c.name}"></li>
+				<li th:text="${c.name}">
+				</li>
 				<li th:text="${c.email}"></li>
 				<li th:text="${c.comment}"></li>
 				
+				<a class="btn btn-primary" th:href="@{|/comments/delete/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
+
 			</ul>
-			
-			
+		
 			<div class ="alert alert-info my-5" th:unless="${recipe.comments.size() > 0}">
 					               
 				<h3>Non ci sono ancora commenti</h3>

@@ -17,6 +17,22 @@
  	
  	</header>	
  	
+ 	
+ 	<div class="bg-light">
+
+                 <div class="container text-center pt-3 pb-5 d-flex justify-content-evenly ">
+
+                     <button type="button" class="btn btn-warning" href="#{advancedSearch}" role="button">Primi</button>
+                     <button type="button" class="btn btn-warning" href="#" role="button">Secondi</button>
+                     <button type="button" class="btn btn-warning" href="#" role="button">Warning</button>
+                     <button type="button" class="btn btn-warning" href="#" role="button">Warning</button>
+                     <button type="button" class="btn btn-warning" href="#" role="button">Warning</button>
+                     <button type="button" class="btn btn-warning" href="#" role="button">Ricette Vegane</button>
+                     <button type="button" class="btn btn-warning" href="#" role="button">Ricette Vegetariane</button>
+
+                 </div>
+             </div>
+
  	<!-- crezione della tabella per vedere la lista-->
 
     <div class="container mt-3 fst-italic">
@@ -27,11 +43,13 @@
  				
  				<div class="col-4 "th:each="t : ${ListSub}">
  				
-	 				<div class="text-center p-3 bg-dark text-info w-100 mb-0">
-	                   
-	                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
-	 				
-	 				</div>
+
+ 				<div class="text-center p-3 bg-dark text-info w-100 mb-0">
+                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
+ 					<p class="d-inline text-start text-success" th:if="${t.isVegan}">(Vegano)</p>
+                    <p class="d-inline text-start text-success" th:if="${t.isVegetarian}">(Vegetariano)</p>
+ 				</div>
+
                    
                     <img th:src="@{|/image/${t.id}/content|}" class="w-100" alt="">
                 	
