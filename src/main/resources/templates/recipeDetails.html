@@ -25,7 +25,7 @@
 		
 		th:text="${recipe.category.name}"
 		th:each=" c : ${recipe.ingrendients}"
-		th:text="${c.name}" & th:text="${c.ingredientAmount}"
+		th:text="${c.name}" e th:text="${c.ingredientAmount}"
 		
 	 	</h1>
 	 	
@@ -83,6 +83,12 @@
 		                        </li>
 		                        <li class="list-group-item"> 
 		                        	
+		                        	<h5>Ingredienti:</h5>
+	                				<ul th:each="i : ${recipe.ingredients}">
+	                			
+	                					<li th:text="${i.name}"></li>
+	                		                			
+	                				</ul>
 				               		<!--<h5>Ingredienti: </h5>
 					               		
 					               		<ul th:each=" i : ${recipe.ingrendients}">
@@ -112,7 +118,7 @@
 	       	
 			</div>  
 	     
-	    	 <!--sezione commenti-->
+	    	 <!--sezione comment-->
 	        <h3 class="text-center mb-3">Sezione commenti</h3>
 	        
 		  	<!--creo form aggiungi COMMENTO e poi devo aggiungere lista dove si vedranno i commenti aggiunti-->
@@ -141,6 +147,7 @@
   						<label for="floatingTextarea2">Commento</label>
 					</div>
 				
+
 						<!--bottone per salvare nuova ricetta-->		
 						<button type="submit" class="btn btn-primary mt-3">Commenta</button>
 						
@@ -168,10 +175,17 @@
 						<h3>Non ci sono ancora commenti</h3>
 							
 					</div>
-					
-				</div>
+
+				<a class="btn btn-primary" th:href="@{|/comments/delete/${recipe.id}/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
+
+			</ul>
+		
+			
 			
 	 	</main>
+  
+  
+  
   
 		<footer class="mt-5 bg-light border border-ligt">
 		
@@ -220,6 +234,8 @@
 		</footer>
   	
   		<!--like-->
+  		
+  		
   	
   	</body>
   	
