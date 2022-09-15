@@ -80,12 +80,12 @@ public class RecipeController {
 		model.addAttribute("ListSub", ListSub);
 		
 		   List<Recipe> List7gg = new ArrayList<>();
-	        for(Recipe r : ListSub) {
+	       for(Recipe r : ListSub) {
 	            if(r.getPublicationDate().isAfter(LocalDate.of (2022, 9, 9))) {
 	                List7gg.add(r);
 	            }
-	        }
-	        model.addAttribute("List7gg", List7gg);
+	       }
+	       model.addAttribute("List7gg", List7gg);
 		
 		return "homePage";
 		
