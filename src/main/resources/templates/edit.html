@@ -71,6 +71,7 @@
 					
 					<input class="form-check-input" th:field="*{ingredients}" type="checkbox" th:id="|ingredient_${ing.id}|" th:value="${ing.id}">
 					<label class="form-check-label" th:for="|ingredient_${ing.id}|" th:text="${ing.name}"></label>
+					<label class="form-check-label" th:for="|ingredient_${ing.id}|" th:text="${ing.ingredientAmount}"></label>
 							
 			</div>
 			

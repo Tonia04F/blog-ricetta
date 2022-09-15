@@ -13,7 +13,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -35,18 +36,12 @@ public class Recipe {
 	
 	private Boolean isVegetarian;
 	
-	private Integer counterViews;
+	private Integer counterViews = 0;
 	
-	public Integer getCounterViews() {
-		return counterViews;
-	}
-
-	public void setCounterViews(Integer counterViews) {
-		this.counterViews = counterViews;
-	}
-
 	private Integer preparationTime;
 	
+	@Min(value=1)
+	@Max(value=3)
 	private Integer difficulty;
 	
 	@Lob
@@ -61,7 +56,7 @@ public class Recipe {
 	@ManyToOne
 	public Category category;
 	
-	@ManyToMany
+	@OneToMany
 	private List<Comment> comments;
 	
 	@OneToMany
@@ -76,7 +71,14 @@ public class Recipe {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public Integer getCounterViews() {
+		return counterViews;
+	}
 
+	public void setCounterViews(Integer counterViews) {
+		this.counterViews = counterViews;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -217,6 +219,18 @@ public class Recipe {
 	public void incrementViews() {
 		
 		counterViews++;
+		
+	}
+	
+	public Integer getCommentsNumber() {
+		
+		return this.comments.size();
+		
+	}
+	
+	public void addComment(Comment comment) {
+		
+		this.comments.add(comment);
 		
 	}
 	

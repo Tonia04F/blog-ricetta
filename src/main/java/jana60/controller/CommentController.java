@@ -1,8 +1,5 @@
 package jana60.controller;
 
-import java.util.List;
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +16,8 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jana60.model.Comment;
-import jana60.model.Ingredient;
 import jana60.model.Recipe;
 import jana60.repository.CommentRepository;
-import jana60.repository.IngredientRepository;
 import jana60.repository.RecipeRepository;
 
 @Controller
@@ -51,15 +46,20 @@ public class CommentController {
 	public String save(@Valid  @PathVariable(name="recipeId")Integer recipeId, @ModelAttribute("newComment") Comment formSub,BindingResult br) {
 		   
 		formSub.setRecipes(recipeRepo.findById(recipeId).get());
-			
+				
 		if(br.hasErrors()) {
 				 
 			return "comments";
 				 
 		}
 			 
-		commentRepo.save(formSub);	 
-		return "redirect:/recipeDetails/"+recipeId;
+		commentRepo.save(formSub);	
+		
+		Recipe currentRecipe = recipeRepo.findById(recipeId).get();
+		currentRecipe.addComment(formSub);
+		recipeRepo.save(currentRecipe);
+		
+		return "redirect:/recipeDetails/" + recipeId;
 		     
 	}
 	
