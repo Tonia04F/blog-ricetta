@@ -17,20 +17,6 @@
 		 	
 	 	</header>
 	 	
-	 	
-	 	<h1>
-		
-		PER SIMONE
-		Da usare per stampare categoria e ingredienti con relative quantità <br>
-		
-		th:text="${recipe.category.name}"
-		th:each=" c : ${recipe.ingrendients}"
-		th:text="${c.name}" & th:text="${c.ingredientAmount}"
-		
-	 	</h1>
-	 	
-	 	
-	 	
 	 	<!--passo la ricetta-->
 	 	<main>
 	 	
@@ -67,7 +53,6 @@
 	                				<li th:text="${i.name}"></li>
 	                		                			
 	                			</ul>
-	                			
 	                			
 	                		</div>
 	                
@@ -123,18 +108,17 @@
 					
 					<!--commenti-->
 			<h2>Commenti</h2>
-	     	
-			<ul th:each="c : ${recipe.comments}">
+	     	     	
+			<ul th:each="c : ${recipe.comments}" th:if="${c.shown}">
 			
-				<li th:text="${c.name}">
-				</li>
+				<li th:text="${c.name}"></li>
 				<li th:text="${c.email}"></li>
 				<li th:text="${c.comment}"></li>
 				
-				<a class="btn btn-primary" th:href="@{|/comments/delete/${recipe.id}/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
+				<a class="btn btn-primary" th:href="@{|/comments/delete/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
 
 			</ul>
-		
+						
 			<div class ="alert alert-info my-5" th:unless="${recipe.comments.size() > 0}">
 					               
 				<h3>Non ci sono ancora commenti</h3>

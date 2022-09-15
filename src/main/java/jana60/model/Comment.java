@@ -36,16 +36,25 @@ public class Comment {
 		
 		private String comment;
 		
+		private Boolean shown = true;
+		
 		//GETTER E SETTER
 		public Integer getId() {
 			return id;
 		}
 
-
 		public void setId(Integer id) {
 			this.id = id;
 		}
+		
+		public Boolean getShown() {
+			return shown;
+		}
 
+
+		public void setShown(Boolean shown) {
+			this.shown = shown;
+		}
 		public Recipe getRecipes() {
 			return recipes;
 		}
@@ -87,9 +96,9 @@ public class Comment {
 
 		//Metodi della classe
 		
-		public void deleteComment (Optional<Comment> comment) {
+		public void hideComment () {
 			
-			comment.get().setRecipes(null);
+			this.shown = false;
 			
 		}
 		
