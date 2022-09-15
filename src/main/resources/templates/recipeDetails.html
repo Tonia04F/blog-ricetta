@@ -61,7 +61,14 @@
 								<h5>Difficoltà: </h5>
 				                <h5 th:text="${recipe.difficulty}"></h5> 
 	                 			<p class="card-text"><small class="text-muted">Pubblicato il <span th:text="${recipe.publicationDate}"></span></small></p>
-	                
+	                			<h5>Ingredienti:</h5>
+	                			<ul th:each="i : ${recipe.ingredients}">
+	                			
+	                				<li th:text="${i.name}"></li>
+	                		                			
+	                			</ul>
+	                			
+	                			
 	                		</div>
 	                
 	              		</div>
@@ -79,7 +86,7 @@
 	       	
 			</div>  
 	     
-	    	 <!--sezione commenti-->
+	    	 <!--sezione comment-->
 	        <h3 class="text-center mb-3">Sezione commenti</h3>
 	        
 		  	<!--creo form aggiungi COMMENTO e poi devo aggiungere lista dove si vedranno i commenti aggiunti-->
@@ -124,7 +131,7 @@
 				<li th:text="${c.email}"></li>
 				<li th:text="${c.comment}"></li>
 				
-				<a class="btn btn-primary" th:href="@{|/comments/delete/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
+				<a class="btn btn-primary" th:href="@{|/comments/delete/${recipe.id}/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
 
 			</ul>
 		
@@ -135,6 +142,9 @@
 			</div>
 			
 	 	</main>
+  
+  
+  
   
 		<footer class="mt-5 bg-light border border-ligt">
 		
@@ -183,6 +193,8 @@
 		</footer>
   	
   		<!--like-->
+  		
+  		
   	
   	</body>
   	

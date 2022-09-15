@@ -1,6 +1,8 @@
 package jana60.model;
 
 
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -83,6 +85,12 @@ public class Comment {
 			this.comment = comment;
 		}
 
-
+		//Metodi della classe
+		
+		public void deleteComment (Optional<Comment> comment) {
+			
+			comment.get().setRecipes(null);
+			
+		}
 		
 }

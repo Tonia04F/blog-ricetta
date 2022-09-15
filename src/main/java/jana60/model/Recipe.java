@@ -3,6 +3,7 @@ package jana60.model;
 import java.time.LocalDate;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -232,6 +233,20 @@ public class Recipe {
 		
 		this.comments.add(comment);
 		
+	}
+	
+	public void findAndDeleteComment(Optional<Comment> currentComment) {
+		
+		for(Comment c : comments) {
+			
+			if(c.getId() == currentComment.get().getId()) {
+				
+				comments.remove(currentComment);
+				
+			}
+						
+		}
+				
 	}
 	
 }
