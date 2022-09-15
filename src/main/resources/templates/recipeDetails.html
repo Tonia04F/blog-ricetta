@@ -16,8 +16,7 @@
 	 		<nav th:replace="fragments/navbar :: navbar('recipes')"></nav>
 		 	
 	 	</header>
-	 	
-	 	
+
 	 	<!--passo la ricetta-->
 	 	<main>
 	 	
@@ -76,16 +75,9 @@
 	                					<li>
 	                						<p th:text="${i.name} + ' ' + ${i.ingredientAmount}"></p>
 	                					</li>
-	                					
-	                		                			
+	                				
 	                				</ul>
-				               		<!--<h5>Ingredienti: </h5>
-					               		
-					               		<ul th:each=" i : ${recipe.ingrendients}">
-					               			
-					               			<li th:text="${i.name}"></li>
-					               			<li th:text="${i.ingredientAmount}"></li>
-					               		</ul>-->
+				               		
 		                        </li>
 	                 			<p class="card-text"><small class="text-muted">Pubblicato il <span th:text="${recipe.publicationDate}"></span></small></p>
 	                
@@ -132,6 +124,7 @@
 							<input type="text" id="email" class ="form-controll" th:field="*{email}">						
 					</div>
 					
+
 					<div class="form-floating">
   						<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" th:field="*{comment}"></textarea>
   						<label for="floatingTextarea2">Commento</label>
@@ -148,7 +141,7 @@
 							
 					<h2 class="mt-5">Commenti</h2>
 			     	
-					<div class="card" th:each="c : ${recipe.comments}">
+					<div class="card" th:each="c : ${recipe.comments}" th:if="${c.shown}">
 								<div class="card-header" th:text="${c.email}">
 								
 								</div>
@@ -169,8 +162,6 @@
 				<!--<a class="btn btn-primary" th:href="@{|/comments/delete/${recipe.id}/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>-->
 
 			</ul>
-		
-			
 			
 	 	</main>
   

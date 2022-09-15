@@ -66,10 +66,10 @@ public class CommentController {
 	}
 	
 	//metodo per cancellare comment
-	@GetMapping("/delete/{recipeId}/{commentId}")
-		  public String deleteIngredients(@Valid @PathVariable("recipeId") Integer recipeId, @PathVariable("commentId") Integer commentId, RedirectAttributes ra) {
+	@GetMapping("/delete/{commentId}")
+		  public String deleteIngredients(@Valid @PathVariable("commentId") Integer commentId) {
 			
-			Optional<Comment> currentComment = commentRepo.findById(commentId);
+			/*Optional<Comment> currentComment = commentRepo.findById(commentId);
 
 	        if(currentComment.isPresent()) {
 	        	
@@ -81,13 +81,27 @@ public class CommentController {
 	        	commentRepo.save(commentToDelete);
 	        	
 	            commentRepo.deleteById(commentId);
+	        	
+	        	
+	        	
 	            ra.addFlashAttribute("successMessage", "il commento è stata eliminato.");
 
 	            return "redirect:/recipeDetails";
 
 	        } else 
 	            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Il commento che stai provando ad eliminare non esiste");
-
+		*/
+		
+		Comment currentComment = commentRepo.findById(commentId).get();
+		
+		currentComment.hideComment();
+		
+		commentRepo.save(currentComment);
+		
+		Integer recipeId = currentComment.getRecipes().getId();
+		
+		return "redirect:/recipeDetails/" + recipeId;
+			
 	    }
 	
 		
