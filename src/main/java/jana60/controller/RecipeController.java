@@ -2,6 +2,7 @@ package jana60.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,7 +67,11 @@ public class RecipeController {
                 List7gg.add(r);
             }
         }
-        model.addAttribute("List7gg", List7gg);
+       model.addAttribute("List7gg", List7gg);
+        
+        /*List<Recipe> ListMostViewed = recipeRepo.findAllOrderByCounterViews();
+        
+        model.addAttribute("ListMostViewed", ListMostViewed);*/
 
         return "admin";
     }
@@ -79,13 +84,13 @@ public class RecipeController {
 		 
 		model.addAttribute("ListSub", ListSub);
 		
-		   List<Recipe> List7gg = new ArrayList<>();
-	       for(Recipe r : ListSub) {
-	            if(r.getPublicationDate().isAfter(LocalDate.of (2022, 9, 9))) {
-	                List7gg.add(r);
-	            }
-	       }
-	       model.addAttribute("List7gg", List7gg);
+		List<Recipe> List7gg = new ArrayList<>();
+	    for(Recipe r : ListSub) {
+	    	if(r.getPublicationDate().isAfter(LocalDate.of (2022, 9, 9))) {
+	        	List7gg.add(r);
+	    	}
+	    }
+	    model.addAttribute("List7gg", List7gg);
 		
 		return "homePage";
 		
@@ -152,7 +157,7 @@ public class RecipeController {
 	//search 2
 	@GetMapping("/search")
 	public String search(@RequestParam(name="queryTitle")String queryTitle,
-						@RequestParam(name="queryDescription", required =false)String queryDescription,
+						@RequestParam(name="queryDescription")String queryDescription,
 						Model model) {
 		
 		if(queryTitle != null && queryTitle.isEmpty()) {
@@ -163,8 +168,8 @@ public class RecipeController {
 			
 		}
 		
-		 List<Recipe>ListSub = recipeRepo.findByTitleContainingOrDescriptionContaining(queryTitle, queryDescription);
-		 model.addAttribute("ListSub",ListSub);
+		List<Recipe>ListSub = recipeRepo.findByTitleContainingOrDescriptionContaining(queryTitle, queryDescription);
+		model.addAttribute("ListSub",ListSub);
 		return"homePage";
 	}
 
@@ -181,6 +186,36 @@ public class RecipeController {
 			
 		}else 
 			ListSub = recipeRepo.findByCategory(null);
+				
+		model.addAttribute("ListSub", ListSub);
+		
+		return "homePage";
+		
+	}
+	
+	@GetMapping("/search/isVegan")
+	public String searchVegan(Model model) {
+		
+		List<Recipe> ListSub = new ArrayList<>();
+		
+		List<Recipe> results = recipeRepo.findByIsVegan(true);
+		ListSub.addAll(results);
+		
+				
+		model.addAttribute("ListSub", ListSub);
+		
+		return "homePage";
+		
+	}
+	
+	@GetMapping("/search/isVegetarian")
+	public String searchVegetarian(Model model) {
+		
+		List<Recipe> ListSub = new ArrayList<>();
+		
+		List<Recipe> results = recipeRepo.findByIsVegetarian(true);
+		ListSub.addAll(results);
+		
 				
 		model.addAttribute("ListSub", ListSub);
 		
