@@ -213,15 +213,14 @@ public class Recipe {
 		counterViews++;
 		
 	}
-	
-	public void addComment(Comment comment) {
+	//METODO PER AGGIUNGERE ED ELIMINARE IL COMMENTO ALLA LISTA DALLA RICETTA (Precedente al mappedBy che collegava le entità)
+	/*public void addComment(Comment comment) {
 		
 		this.comments.add(comment);
 		
 	}
 	
-	//METODO PER AGGIUNGERE IL COMMENTO ALLA LISTA DELLA RICETTA (Precedente al mappedBy che collegava le entità)
-	/*public void findAndDeleteComment(Optional<Comment> currentComment) {
+	public void findAndDeleteComment(Optional<Comment> currentComment) {
 		
 		for(Comment c : comments) {
 			
