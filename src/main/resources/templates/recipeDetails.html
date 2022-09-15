@@ -18,19 +18,6 @@
 	 	</header>
 	 	
 	 	
-	 	<h1>
-		
-		PER SIMONE
-		Da usare per stampare categoria e ingredienti con relative quantità <br>
-		
-		th:text="${recipe.category.name}"
-		th:each=" c : ${recipe.ingrendients}"
-		th:text="${c.name}" e th:text="${c.ingredientAmount}"
-		
-	 	</h1>
-	 	
-	 	
-	 	
 	 	<!--passo la ricetta-->
 	 	<main>
 	 	
@@ -86,7 +73,10 @@
 		                        	<h5>Ingredienti:</h5>
 	                				<ul th:each="i : ${recipe.ingredients}">
 	                			
-	                					<li th:text="${i.name}"></li>
+	                					<li>
+	                						<p th:text="${i.name} + ' ' + ${i.ingredientAmount}"></p>
+	                					</li>
+	                					
 	                		                			
 	                				</ul>
 				               		<!--<h5>Ingredienti: </h5>
@@ -176,7 +166,7 @@
 							
 					</div>
 
-				<a class="btn btn-primary" th:href="@{|/comments/delete/${recipe.id}/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
+				<!--<a class="btn btn-primary" th:href="@{|/comments/delete/${recipe.id}/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>-->
 
 			</ul>
 		

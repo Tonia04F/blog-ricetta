@@ -25,21 +25,7 @@
 					          <a class="nav-link fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" href="/">Home</a>
 
 					        </li>
-					        <li class="nav-item dropdown">
-
-					          <a class="nav-link active dropdown-toggle fst-italic" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					          Ricette
-					          </a>
-
-					          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-					          	<li><a class="dropdown-item fst-italic" href="/recipeslist">Tutte le ricette</a></li>
-					            <li><a class="dropdown-item fst-italic" href="#">Vegetariano</a></li>
-					            <li><a class="dropdown-item fst-italic" href="#">Vegano</a></li>
-
-					          </ul>
-
-					        </li>	
+					        
 					        
 			
 						</ul>
@@ -49,7 +35,7 @@
 				  		  <!--form per tasto search-->
 					    
 					     
-				  <a class="nav-link fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" href="/advancedSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
+				  <a class="nav-link fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" href="/advancedSearch">Ricerca <i class="fa-solid fa-magnifying-glass"></i></a>
 
 					     
 					   </div>	  
@@ -61,21 +47,20 @@
 	
 						      	<li class="nav-item">
 	
-						        	<a class="nav-link active fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" aria-current="page" href="#">Registrati</a>
+						        	<a class="nav-link active fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" aria-current="page" href="/login">Accedi</a>
 	
 						        </li>					    
 						        <li class="nav-item">
 	
-						        	<a class="nav-link active fst-italic" aria-current="page" href="#">Accedi</a>
+						        	<a class="nav-link active fst-italic" aria-current="page" href="/logout">Logout</a>
 	
 						     	</li>
 
 					     	</ul>
 				  		</div>
 				  			<!--TASTI ADMIN USER-->
-				  			<div>
-				  				<a href="/user">Area utente</a>
-				  				<a href="/admin">Area amministrazione</a>
+				  		
+				  				<a class="text-dark text-decoration-none" href="/admin">Area amministrazione</a>
 
 				  			</div>
 					    
