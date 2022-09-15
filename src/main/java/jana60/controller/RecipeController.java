@@ -54,10 +54,6 @@ public class RecipeController {
 		return "user";
 	}
 	
-
-	
-	
-	
 	@GetMapping("/admin")
     public String admin(Model model) {
         List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
@@ -176,7 +172,7 @@ public class RecipeController {
 	}
 
 	@GetMapping("/search/category/{categoryId}")
-	public String searchByCategory(@RequestParam(name="categoryId") Integer categoryId, Model model) {
+	public String searchByCategory(@PathVariable(name="categoryId") Integer categoryId, Model model) {
 		
 		 List<Recipe> ListSub = new ArrayList<>();
 		Optional <Category> category=categoryRepo.findById(categoryId);

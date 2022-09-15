@@ -249,4 +249,19 @@ public class Recipe {
 				
 	}
 	
+	public Integer countComments() {
+		
+		Integer count = 0;
+		
+		for (Comment com : comments) {
+			
+			if(com.getShown())
+				count++;
+			
+		}
+		
+		return count;
+		
+	}
+	
 }
