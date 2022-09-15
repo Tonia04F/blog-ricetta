@@ -70,9 +70,6 @@ public class RecipeController {
 
         return "admin";
     }
-
-
-	
 	
 	@GetMapping
 	public String homePage(Model model) 
@@ -139,19 +136,19 @@ public class RecipeController {
 		
 	}
 	
-
-		//advanced search
-	 @GetMapping("/advancedSearch")
-	  public String advancedSearch() {
+	//advanced search
+	@GetMapping("/advancedSearch")
+	public String advancedSearch() {
 		 
 			
 		 return "advancedSearch";
-	  }*/
+	}*/
 	
 	@GetMapping("/advancedSearch")
 	public String advancedSearch() {
 		return"/search";
 	}
+	
 	//search 2
 	@GetMapping("/search")
 	public String search(@RequestParam(name="queryTitle")String queryTitle,
@@ -186,7 +183,8 @@ public class RecipeController {
 			ListSub = recipeRepo.findByCategory(null);
 				
 		model.addAttribute("ListSub", ListSub);
-		return "recipesList";
+		
+		return "homePage";
 		
 	}
 	
@@ -195,7 +193,6 @@ public class RecipeController {
 		
 		return "homePage";
 	}*/
-			
 	
 	@GetMapping("/add")
 	public String SubForm(Model model) {
@@ -241,8 +238,6 @@ public class RecipeController {
 		public String edit(@PathVariable("id") Integer recipeId, Model model) {
 		    Optional<Recipe> result = recipeRepo.findById(recipeId);
 
-		  
-		    
 		    if (result.isPresent()) {
 		    	
 		    	model.addAttribute("NewRecipe", result.get());
@@ -253,7 +248,7 @@ public class RecipeController {
 		    }else{
 		    	
 		    	throw new ResponseStatusException(HttpStatus.NOT_FOUND,
-		    	"Recipe con id " + recipeId + " not present");
+		    	"La ricetta che cerchi non è presente");
 		      
 	  	    }
 		    
@@ -279,4 +274,3 @@ public class RecipeController {
         }
 		
 }
-
