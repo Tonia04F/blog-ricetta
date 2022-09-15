@@ -22,21 +22,86 @@
 
                  <div class="container text-center pt-3 pb-5 d-flex justify-content-evenly ">
 
-                     <button type="button" class="btn btn-warning" href="#{advancedSearch}" role="button">Primi</button>
+                     <button type="button" class="btn btn-warning" href="#" role="button">Primi</button>
                      <button type="button" class="btn btn-warning" href="#" role="button">Secondi</button>
-                     <button type="button" class="btn btn-warning" href="#" role="button">Warning</button>
-                     <button type="button" class="btn btn-warning" href="#" role="button">Warning</button>
-                     <button type="button" class="btn btn-warning" href="#" role="button">Warning</button>
+                     <button type="button" class="btn btn-warning" href="" role="button">Contorni</button></a>
+                     <button type="button" class="btn btn-warning" href="#" role="button">Dolci</button>
+                 
                      <button type="button" class="btn btn-warning" href="#" role="button">Ricette Vegane</button>
                      <button type="button" class="btn btn-warning" href="#" role="button">Ricette Vegetariane</button>
 
+					
+
                  </div>
              </div>
+             
+              
+    <!--<div class="row">
+ 				<h3>Lista di ricette degli ultimi 7 giorni</h3>
+ 				<div class="col-4"th:each="t : ${List7gg}">
+ 				
 
+ 				<div class="text-center p-3 bg-dark text-info w-100 mb-0">
+                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
+ 					<p class="d-inline text-start text-success" th:if="${t.isVegan}">(Vegano)</p>
+                    <p class="d-inline text-start text-success" th:if="${t.isVegetarian}">(Vegetariano)</p>
+ 				</div>
+
+                   
+                    <img th:src="@{|/image/${t.id}/content|}" class="w-100" alt="">
+                	
+                	<div class="shadow p-1 mb-5 bg-body rounded">
+                
+                	<ul class="list-group list-group-flush">
+                
+                    	<li class="list-group-item">
+                    
+	                          <i class="fa-regular fa-clock"></i>
+	                          <p class="d-inline text-start" th:text="${t.preparationTime}"></p>
+	                    
+	                     </li>
+	                     
+	                     <li class="list-group-item">
+	                     
+	                           <i class="fa-regular fa-star"></i>
+	                           <p class="d-inline text-start" th:text="${t.difficulty}"></p>
+	                   
+	                    </li> 
+	                    
+	                    <li class="list-group-item" th:if="${t.isVegan}">
+	                    
+	                    	<i class="fa-solid fa-seedling"></i>
+	                        <p class="d-inline text-start">Vegano</p>
+	                    
+	                    </li>	                    
+	                    
+	                    <li class="list-group-item">
+	                    
+	                          <i class="fa-regular fa-heart"></i>
+	                          <p class="d-inline text-start">1000</p>
+	                          <i class="fa-regular fa-eye"></i>
+	                          <p class="d-inline text-start" th:text="${t.counterViews}"></p>
+	                          <i class="fa-regular fa-comment"></i>
+	                          <p class="d-inline text-start" th:text="${t.comments.size()}"></p>
+	                          
+	                    </li> 
+                       
+                	</ul>
+                
+            	</div>
+            
+        	</div>
+        
+ 	
+ 		</div>
+ 		
+ 	</div>-->
+ 	
  	<!-- crezione della tabella per vedere la lista-->
 
     <div class="container mt-3 fst-italic">
-    	
+    
+    	<h1 class="text-center">Le nostre specialità</h1>
     
  
  			<div class="row">
@@ -90,6 +155,11 @@
  		</div>
  		
  	</div>
+ 	
+ 	
+ 	
+ 	
+ 	
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
