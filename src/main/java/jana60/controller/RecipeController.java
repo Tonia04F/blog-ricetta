@@ -167,6 +167,7 @@ public class RecipeController {
 		return"homePage";
 	}
 	
+	
 	/*@GetMapping("/advancedSearch")
 	public String searchByCategory(@RequestParam(name="queryCategory")Integer categoryId, Model model) {
 		
