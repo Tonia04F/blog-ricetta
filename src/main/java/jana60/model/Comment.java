@@ -14,8 +14,6 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 public class Comment {
 
-	
-	
 	//ATTRIBUTES
 	
 		@Id
@@ -36,8 +34,6 @@ public class Comment {
 		
 		private String comment;
 		
-		private Boolean shown = true;
-		
 		//GETTER E SETTER
 		public Integer getId() {
 			return id;
@@ -47,14 +43,6 @@ public class Comment {
 			this.id = id;
 		}
 		
-		public Boolean getShown() {
-			return shown;
-		}
-
-
-		public void setShown(Boolean shown) {
-			this.shown = shown;
-		}
 		public Recipe getRecipes() {
 			return recipes;
 		}
@@ -94,12 +82,4 @@ public class Comment {
 			this.comment = comment;
 		}
 
-		//Metodi della classe
-		
-		public void hideComment () {
-			
-			this.shown = false;
-			
-		}
-		
 }

@@ -3,7 +3,6 @@ package jana60.model;
 import java.time.LocalDate;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,7 +56,7 @@ public class Recipe {
 	@ManyToOne
 	public Category category;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "recipes")
 	private List<Comment> comments;
 	
 	@OneToMany
@@ -172,15 +171,7 @@ public class Recipe {
 	}
 	
 	//METHODS OF THE CLASS
-	
-	/*public String formatDate() {
-		
-		String formattedDate;
-		DateTimeFormatter formdate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		formattedDate = this.publicationDate.format(formdate);
-		
-		return formattedDate;*/
-		
+			
 	public void isVegan() {
 		
 		for (Ingredient ing : ingredients) {
@@ -223,19 +214,14 @@ public class Recipe {
 		
 	}
 	
-	public Integer getCommentsNumber() {
-		
-		return this.comments.size();
-		
-	}
-	
 	public void addComment(Comment comment) {
 		
 		this.comments.add(comment);
 		
 	}
 	
-	public void findAndDeleteComment(Optional<Comment> currentComment) {
+	//METODO PER AGGIUNGERE IL COMMENTO ALLA LISTA DELLA RICETTA (Precedente al mappedBy che collegava le entità)
+	/*public void findAndDeleteComment(Optional<Comment> currentComment) {
 		
 		for(Comment c : comments) {
 			
@@ -247,21 +233,6 @@ public class Recipe {
 						
 		}
 				
-	}
-	
-	public Integer countComments() {
-		
-		Integer count = 0;
-		
-		for (Comment com : comments) {
-			
-			if(com.getShown())
-				count++;
-			
-		}
-		
-		return count;
-		
-	}
+	}*/
 	
 }

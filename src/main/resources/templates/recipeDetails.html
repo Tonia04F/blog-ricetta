@@ -142,7 +142,7 @@
 							
 					<h2 class="mt-5">Commenti</h2>
 			     	
-					<div class="card" th:each="c : ${recipe.comments}" th:if="${c.shown}">
+					<div class="card" th:each="c : ${recipe.comments}">
 								<div class="card-header" th:text="${c.email}">
 								
 								</div>
