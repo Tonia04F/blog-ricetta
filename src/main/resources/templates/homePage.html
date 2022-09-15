@@ -9,7 +9,7 @@
     
   </head>
   
-  <body>
+  <body class="font">
  	
  	<header>
  	
@@ -36,7 +36,7 @@
              </div>
              
               
-    <div class="row">
+    <!--<div class="row">
  				<h3>Lista di ricette degli ultimi 7 giorni</h3>
  				<div class="col-4"th:each="t : ${List7gg}">
  				
@@ -95,13 +95,12 @@
  	
  		</div>
  		
- 	</div>
- 	
- 	<hr>
+ 	</div>-->
  	
  	<!-- crezione della tabella per vedere la lista-->
 
     <div class="container mt-3 fst-italic">
+    
     	<h1 class="text-center">Le nostre specialità</h1>
     
  
@@ -110,8 +109,8 @@
  				<div class="col-4 "th:each="t : ${ListSub}">
  				
 
- 				<div class="text-center p-3 bg-dark text-info w-100 mb-0">
-                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
+ 				<div class="text-center p-3 bg-warning w-100 mb-0">
+                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" class="text-decoration-none text-dark"></a>
  					<p class="d-inline text-start text-success" th:if="${t.isVegan}">(Vegano)</p>
                     <p class="d-inline text-start text-success" th:if="${t.isVegetarian}">(Vegetariano)</p>
  				</div>
@@ -135,19 +134,10 @@
 	                           <i class="fa-regular fa-star"></i>
 	                           <p class="d-inline text-start" th:text="${t.difficulty}"></p>
 	                   
-	                    </li> 
-	                    
-	                    <li class="list-group-item" th:if="${t.isVegan}">
-	                    
-	                    	<i class="fa-solid fa-seedling"></i>
-	                        <p class="d-inline text-start">Vegano</p>
-	                    
-	                    </li>	                    
+	                    </li>                  
 	                    
 	                    <li class="list-group-item">
-	                    
-	                          <i class="fa-regular fa-heart"></i>
-	                          <p class="d-inline text-start">1000</p>
+
 	                          <i class="fa-regular fa-eye"></i>
 	                          <p class="d-inline text-start" th:text="${t.counterViews}"></p>
 	                          <i class="fa-regular fa-comment"></i>

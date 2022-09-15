@@ -174,7 +174,7 @@ public class RecipeController {
 		 model.addAttribute("ListSub",ListSub);
 		return"homePage";
 	}
-	
+
 	@GetMapping("/search/category/{categoryId}")
 	public String searchByCategory(@RequestParam(name="categoryId") Integer categoryId, Model model) {
 		
