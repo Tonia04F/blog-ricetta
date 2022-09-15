@@ -57,7 +57,9 @@
 				                
 									<h5>Difficoltà: </h5>
 									<i class="fa-regular fa-star"></i>
-					                <p class="d-inline" th:text="${recipe.difficulty}"></p>
+					                <p class="d-inline" th:if="${recipe.difficulty} == 1">Facile</p>
+				                	<p class="d-inline" th:if="${recipe.difficulty} == 2">Medio</p>
+				                	<p class="d-inline" th:if="${recipe.difficulty} == 3">Difficile</p>
 					                
 		                        </li>
 		                        <li class="list-group-item">  
