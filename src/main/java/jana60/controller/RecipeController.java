@@ -56,24 +56,25 @@ public class RecipeController {
 	
 
 	
-
-	@GetMapping("/admin")
-	public String admin(Model model) {
-		List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
-		model.addAttribute("ListSub", ListSub);
-		
-
-		/*List<Recipe> List7gg = new ArrayList<>();
-		for(Recipe r : ListSub) {
-			if(r.getPublicationDate().isAfter(LocalDate.of (2022, 9, 9))) {
-				List7gg.add(r);
-			}
-		}
-		model.addAttribute("List7gg", List7gg);*/
-
-		return "admin";
-	}
 	
+	
+	@GetMapping("/admin")
+    public String admin(Model model) {
+        List<Recipe> ListSub = (List<Recipe>) recipeRepo.findAll();
+        model.addAttribute("ListSub", ListSub);
+
+
+        List<Recipe> List7gg = new ArrayList<>();
+        for(Recipe r : ListSub) {
+            if(r.getPublicationDate().isAfter(LocalDate.of (2022, 9, 9))) {
+                List7gg.add(r);
+            }
+        }
+        model.addAttribute("List7gg", List7gg);
+
+        return "admin";
+    }
+
 
 	
 	
@@ -162,16 +163,15 @@ public class RecipeController {
 		}
 		
 		 List<Recipe>ListSub = recipeRepo.findByTitleContainingOrDescriptionContaining(queryTitle, queryDescription);
-
-		
-			
-
-		//model.addAttribute("categoryId", category);
-
-		model.addAttribute("ListSub",ListSub);
+		 model.addAttribute("ListSub",ListSub);
 		return"homePage";
 	}
 	
+	/*@GetMapping("/advancedSearch")
+	public String searchByCategory(@RequestParam(name="queryCategory")Integer categoryId, Model model) {
+		
+		return "homePage";
+	}*/
 			
 	
 	@GetMapping("/add")
