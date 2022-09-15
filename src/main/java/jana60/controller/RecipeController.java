@@ -175,6 +175,25 @@ public class RecipeController {
 		return"homePage";
 	}
 	
+	@GetMapping("/search/category/{categoryId}")
+	public String searchByCategory(@RequestParam(name="categoryId") Integer categoryId, Model model) {
+		
+		 List<Recipe> ListSub = new ArrayList<>();
+		Optional <Category> category=categoryRepo.findById(categoryId);
+		
+		if(category.isPresent()) {
+			
+			List<Recipe> results = recipeRepo.findByCategory(category.get());
+			ListSub.addAll(results);
+			
+		}else 
+			ListSub = recipeRepo.findByCategory(null);
+				
+		model.addAttribute("ListSub", ListSub);
+		return "recipesList";
+		
+	}
+	
 	/*@GetMapping("/advancedSearch")
 	public String searchByCategory(@RequestParam(name="queryCategory")Integer categoryId, Model model) {
 		
