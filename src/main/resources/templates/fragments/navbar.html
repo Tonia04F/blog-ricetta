@@ -40,20 +40,21 @@
 					          </ul>
 
 					        </li>	
+					        
+			
 						</ul>
 						
 						
 						
 				  		  <!--form per tasto search-->
-					     <form action="/search" method="GET">
-					     	<input type="text" name="queryTitle">
-					     	<button>Search</button>
-					     </form> 
+					    
 					     
-				  <a class="nav-link fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" href="/advancedSearch">Advanced search</a>
+				  <a class="nav-link fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" href="/advancedSearch"><i class="fa-regular fa-magnifying-glass-plus"></i></a>
 
 					     
 					   </div>	  
+				  		    
+				  	
 				  		    
 				  		<div class="text-end">      
 						    <ul class="navbar-nav py-1">
