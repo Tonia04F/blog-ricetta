@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
 @Entity
 public class Category {
 	

@@ -20,7 +20,7 @@ public class Ingredient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotEmpty(message = "Il nome è necessario:")
+	@NotEmpty(message = "Il nome è necessario")
 	@Column(nullable = false)
 	private String name;
 	
@@ -28,6 +28,8 @@ public class Ingredient {
 	
 	private Boolean isVegetarian;
 	
+	@NotEmpty(message = "La quantità è necessaria")
+	@Column(nullable = false)
 	private String ingredientAmount;
 	
 	@ManyToMany(mappedBy = "ingredients")

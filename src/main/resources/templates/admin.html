@@ -32,15 +32,14 @@
                 	<a th:href="@{/category}"  role="button" class="btn btn-dark me-3 rounded-3 text-warning border-warning fw-bold">Aggiungi una categoria</a>
                 </div>
                 
-				<hr>
-         		
-         		<div th:if="${#lists.isEmpty(ListSub)}">
-         		
-	        		<h1>Spiacenti, non è disponibile una lista di ricette</h1>
-	        		
-	      		</div>
+				<hr>         		         		
 	      		<h2 class="text-warning">Le nostre ricette</h2>
 	      		<hr>
+	      		<div th:if="${#lists.isEmpty(ListSub)}">
+         		
+	        		<h5>Spiacenti, non è disponibile una lista di ricette</h5>
+	        		
+	      		</div>
 				<div th:unless="${#lists.isEmpty(ListSub)}" style="color: aliceblue;">
       
 					<table class="table mb-5 text-white" style="color: black;">
@@ -103,7 +102,7 @@
     
 			    <div th:if="${#lists.isEmpty(List7gg)}">
 			    
-					<h1>Spiacenti, non è disponibile una lista di ricette</h1>
+					<h5>Spiacenti, non è disponibile una lista di ricette</h5>
 					
 				</div>
 				
@@ -167,7 +166,7 @@
     			<hr>
 			    <div th:if="${#lists.isEmpty(ListMostViewed)}">
 			    
-					<h1>Spiacenti, non è disponibile una lista di ricette</h1>
+					<h5>Spiacenti, non è disponibile una lista di ricette</h5>
 					
 				</div>
 				
@@ -232,7 +231,7 @@
     
 			    <div th:if="${#lists.isEmpty(ListMostCommented)}">
 			    
-					<h1>Spiacenti, non è disponibile una lista di ricette</h1>
+					<h5>Spiacenti, non è disponibile una lista di ricette</h5>
 					
 				</div>
 				

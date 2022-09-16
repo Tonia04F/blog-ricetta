@@ -19,7 +19,7 @@
  	
  	<main class="container w-100 bg-dark">
  	
- 	<div >
+ 		<div>
 
                  <div class="container text-center pt-3 pb-3 d-flex justify-content-evenly">
 
@@ -32,7 +32,7 @@
                     <a href="/search/isVegetarian" class="text-decoration-none text-warning">Vegetariane</a>
                     
                  </div>
-             </div>
+       	</div>
              
               
     <div class="container row w-100 justify-content">
@@ -49,9 +49,8 @@
                     <p class="d-inline text-start text-success" th:if="${t.isVegetarian}">(Vegetariano)</p>
  				</div>
 
-                   
-                    <img th:src="@{|/image/{t.getId()}/content|}" class="w-100 border border-warning" alt="">
-                	
+                    <img th:src="@{|/image/${t.id}/content|}" class="w-100 border border-warning" alt="">
+                    
                 	<div class="mb-5 ">
                 
                 	<ul class="list-group list-group-flush bg-body border border-warning">

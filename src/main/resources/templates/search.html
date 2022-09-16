@@ -21,6 +21,19 @@
 	
 		
 		<div class="container col-6 justify-content">
+		
+			<div class="container text-center pt-3 pb-3 d-flex justify-content-evenly">
+
+                 	<a href="/search/category/1" class="text-decoration-none text-warning">Antipasti</a>
+                    <a href="/search/category/2" class="text-decoration-none text-warning">Primi</a>
+                    <a href="/search/category/3" class="text-decoration-none text-warning">Secondi</a>
+                    <a href="/search/category/4" class="text-decoration-none text-warning">Contorni</a>
+                    <a href="/search/category/5" class="text-decoration-none text-warning">Dolci</a>
+                    <a href="/search/isVegan" class="text-decoration-none text-warning">Vegane</a>
+                    <a href="/search/isVegetarian" class="text-decoration-none text-warning">Vegetariane</a>
+                    
+            </div>
+                 
 			<form action="/search">
 				<span class="text-warning ">Nome: <input class="form-control" type="text" name="queryTitle">
 				Descrizione: <input class="form-control" type="text" name="queryDescription"></span>
@@ -34,43 +47,43 @@
 
     <div class="container mt-3 fst-italic">
     
-    	
-    
- 
  			<div class="row">
  				
  				<div class="col-4 "th:each="t : ${ListSub}">
  				
 
  				<div class="text-center p-3 bg-dark w-100 mb-0 border border-warning">
-                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" class="text-decoration-none text-warning"></a>
+                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" class="text-decoration-none text-warning bg-dark border-warning"></a>
  					<p class="d-inline text-start text-success" th:if="${t.isVegan}">(Vegano)</p>
                     <p class="d-inline text-start text-success" th:if="${t.isVegetarian}">(Vegetariano)</p>
  				</div>
 
-                   
-                    <img th:src="@{|/image/${t.id}/content|}" class="w-100" alt="">
-                	
-                	<div class="shadow p-1 mb-5  bg-dark rounded">
+                    <img th:src="@{|/image/${t.id}/content|}" class="w-100 border border-warning" alt="">
+                    
+                	<div class="mb-5 ">
                 
-                	<ul class="list-group list-group-flush">
+                	<ul class="list-group list-group-flush bg-body border border-warning">
                 
-                    	<li class="list-group-item bg-dark border border-warning text-warning">
+                    	<li class="list-group-item bg-dark text-warning">
                     
 	                          <i class="fa-regular fa-clock"></i>
-	                          <p class="d-inline text-start" th:text="${t.preparationTime}"></p>
+	                          <p class="d-inline text-start" th:text="${t.preparationTime} + ' ' + minuti"></p>
 	                    
 	                     </li>
 	                     
-	                     <li class="list-group-item bg-dark border border-warning text-warning">
+	                     <li class="list-group-item bg-dark text-warning">
 	                     
 	                           <i class="fa-regular fa-star"></i>
-	                           <p class="d-inline text-start" th:text="${t.difficulty}"></p>
+	                           <p class="d-inline" th:if="${t.difficulty} == 1">Facile</p>
+				               <p class="d-inline" th:if="${t.difficulty} == 2">Medio</p>
+				               <p class="d-inline" th:if="${t.difficulty} == 3">Difficile</p>
 	                   
-	                    </li>                  
+	                    </li> 
 	                    
-	                    <li class="list-group-item bg-dark border border-warning text-warning">
-
+	                                        
+	                    
+	                    <li class="list-group-item bg-dark text-warning">
+	                    	                          
 	                          <i class="fa-regular fa-eye"></i>
 	                          <p class="d-inline text-start" th:text="${t.counterViews}"></p>
 	                          <i class="fa-regular fa-comment"></i>
@@ -82,7 +95,6 @@
                 
             	</div>
             
-        	</div>
         
  	
  		</div>
