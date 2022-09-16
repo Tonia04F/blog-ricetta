@@ -2,13 +2,13 @@
 
 	<body>
 
-		<div class="nav-centered justify-content-around shadow mb-5 bg-body d-flex justify-content-around w-100" >
+		<div class="nav-centered justify-content-around shadow mb-5 bg-dark d-flex justify-content-around w-100" >
 
-			<nav th:fragment="navbar(current)" class="navbar navbar-expand-lg navbar-light bg-warning ">
+			<nav th:fragment="navbar(current)" class="navbar navbar-expand-lg navbar-dark bg-dark">
 
 				<div class="nav-wrapper container-fluid ">
 
-					<a class="navbar-brand fst-italic" href="/">Ricette Casarecce</a>
+					<a class="navbar-brand fst-italic" href="/"><i class="fa-solid fa-utensils"></i> Ricette Casarecce</a>
 
 				    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -30,7 +30,7 @@
 						
 				  		  <!--form per tasto search-->
 					    
-				  	<a class="nav-link fst-italic" th:classAppend="${current == 'homePage'} ? active : not-active" href="/advancedSearch">Ricerca <i class="fa-solid fa-magnifying-glass"></i></a>
+				  	<a class="nav-link fst-italic text-white" th:classAppend="${current == 'homePage'} ? active : not-active" href="/advancedSearch">Ricerca <i class="fa-solid fa-magnifying-glass"></i></a>
 
 					     
 					   </div>	  
@@ -55,7 +55,7 @@
 				  		</div>
 				  			<!--TASTI ADMIN USER-->
 				  		
-				  				<a class="text-dark text-decoration-none" href="/admin">Area amministrazione</a>
+				  				<a class=" text-decoration-none text-warning" href="/admin">Area amministrazione</a>
 
 				  			</div>
 					    
@@ -64,7 +64,6 @@
 					</nav>
 				</div>
 
-		
 
 	</body>
 

@@ -8,22 +8,88 @@
 		
 	</head>
 	
-	<body>
+	<body class="bg-dark">
 	
 		<header>
 		
 			<nav th:replace="fragments/navbar :: navbar('search')"></nav>
 			
 		</header>
-		<div class="container-fluid">
+		
+
+	
+	
+		
+		<div class="container col-6 justify-content">
 			<form action="/search">
-				Nome: <input class0"form-control" type="text" name="queryTitle">
-				Descrizione: <input class0"form-control" type="text" name="queryDescription">
+				<span class="text-warning ">Nome: <input class="form-control" type="text" name="queryTitle">
+				Descrizione: <input class="form-control" type="text" name="queryDescription"></span>
 	
 				
-				<button>Search</button>
+				<button class="text-center border border-warning text-warning bg-dark">Search</button>
 			</form>
 		</div>
+		
+		<!-- crezione della tabella per vedere la lista-->
+
+    <div class="container mt-3 fst-italic">
+    
+    	
+    
+ 
+ 			<div class="row">
+ 				
+ 				<div class="col-4 "th:each="t : ${ListSub}">
+ 				
+
+ 				<div class="text-center p-3 bg-dark w-100 mb-0 border border-warning">
+                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" class="text-decoration-none text-warning"></a>
+ 					<p class="d-inline text-start text-success" th:if="${t.isVegan}">(Vegano)</p>
+                    <p class="d-inline text-start text-success" th:if="${t.isVegetarian}">(Vegetariano)</p>
+ 				</div>
+
+                   
+                    <img th:src="@{|/image/${t.id}/content|}" class="w-100" alt="">
+                	
+                	<div class="shadow p-1 mb-5  bg-dark rounded">
+                
+                	<ul class="list-group list-group-flush">
+                
+                    	<li class="list-group-item bg-dark border border-warning text-warning">
+                    
+	                          <i class="fa-regular fa-clock"></i>
+	                          <p class="d-inline text-start" th:text="${t.preparationTime}"></p>
+	                    
+	                     </li>
+	                     
+	                     <li class="list-group-item bg-dark border border-warning text-warning">
+	                     
+	                           <i class="fa-regular fa-star"></i>
+	                           <p class="d-inline text-start" th:text="${t.difficulty}"></p>
+	                   
+	                    </li>                  
+	                    
+	                    <li class="list-group-item bg-dark border border-warning text-warning">
+
+	                          <i class="fa-regular fa-eye"></i>
+	                          <p class="d-inline text-start" th:text="${t.counterViews}"></p>
+	                          <i class="fa-regular fa-comment"></i>
+	                          <p class="d-inline text-start" th:text="${t.comments.size()}"></p>
+	                          
+	                    </li> 
+                       
+                	</ul>
+                
+            	</div>
+            
+        	</div>
+        
+ 	
+ 		</div>
+ 		
+ 	</div>
+ 	</div>
+
 		
 	</body>
 	
