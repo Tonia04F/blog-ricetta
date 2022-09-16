@@ -112,7 +112,7 @@
 				th:object="${newComment}"
 				th:action="@{/comments/save/{id}(id=${recipe.id})}"method="POST">
 				
-				<div class="container border border-warning">
+				<div class="container border border-warning p-3">
 				
 					<div class="mb-3 text-warning">
 			    	
@@ -143,9 +143,9 @@
 							
 							<!--commenti-->
 							
-					<h2 class="mt-5">Commenti</h2>
+					<h2 class="mt-5 text-warning">Commenti</h2>
 			     	
-					<div class="card" th:each="c : ${recipe.comments}">
+					<div class="card mb-4" th:each="c : ${recipe.comments}">
 								<div class="card-header" th:text="${c.email}">
 								
 								</div>
