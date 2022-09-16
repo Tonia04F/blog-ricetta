@@ -72,8 +72,8 @@ public class RecipeController {
        List<Recipe> ListMostViewed = recipeRepo.findAllByOrderByCounterViewsDesc();
        model.addAttribute("ListMostViewed", ListMostViewed);
        
-       /*List<Recipe> ListMostCommented = recipeRepo.findAllByOrderByComments();
-       model.addAttribute("ListMostCommented", ListMostCommented);*/
+       List<Recipe> ListMostCommented = recipeRepo.findAllByOrderByComments();
+       model.addAttribute("ListMostCommented", ListMostCommented);
 
         return "admin";
     }
