@@ -12,9 +12,7 @@
   	<body>
   	
 	  	<header>
-	 	
-	 		
-	 	
+	  	
 	 		<nav th:replace="fragments/navbar :: navbar('recipes')"></nav>
 	 	
 	 	</header>
@@ -22,8 +20,6 @@
 		<h2 class="text-muted my-3" th:text="'Aggiungi una nuova immagine per ' + ${imageForm.recipe.title}"></h2>
 		<hr />
 	
-		
-		
 		<div class="container">
 		<!-- Inizio Form (mappata su un oggetto di tipo ImageForm, non Image -->
 		<div class="container col-6">
@@ -49,6 +45,7 @@
 			<div class="row">
 				<div class="col-3" th:each="img : ${imageList}">
 				<img th:src="@{|/image/${img.id}/content|}" class="img-fluid" alt="">
+				<a class="btn btn-danger d-block my-2" width:"100%" title="Cancella" th:href="@{|/image/delete/${img.id}|}" onclick="return confirm('Sei sicuro?') "><i class="fa-solid fa-trash-can"></i></a>
 					
 		    			</div>
 					</div>

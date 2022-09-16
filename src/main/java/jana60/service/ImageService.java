@@ -58,6 +58,7 @@ public class ImageService {
 		
 		public byte[] getImageContent(Integer id) 
 		{
+			
 			Image img = imageRepo.findById(id).get();
 			return img.getContent();
 			
