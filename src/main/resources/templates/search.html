@@ -82,12 +82,16 @@
 	                    
 	                                        
 	                    
-	                    <li class="list-group-item bg-dark text-warning">
+	                    <li class="list-group-item bg-dark text-warning d-flex justify-content-between">
 	                    	                          
-	                          <i class="fa-regular fa-eye"></i>
-	                          <p class="d-inline text-start" th:text="${t.counterViews}"></p>
-	                          <i class="fa-regular fa-comment"></i>
-	                          <p class="d-inline text-start" th:text="${t.comments.size()}"></p>
+	                        <div>                        
+		                    	<i class="fa-regular fa-eye"></i>
+		                    	<p class="d-inline text-start" th:text="${t.counterViews} + ' ' + Visualizzazioni"></p>
+		                    </div>
+	                    	<div>
+	                            <i class="fa-regular fa-comment"></i>
+	                            <p class="d-inline text-start" th:text="${t.comments.size()} + ' ' + Commenti"></p>
+	                    	</div>
 	                          
 	                    </li> 
                        
