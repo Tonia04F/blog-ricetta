@@ -9,7 +9,7 @@
     
   	</head>
   
-  	<body>
+  	<body class="bg-dark">
   	
   		<header>
 	 		 	
@@ -20,13 +20,14 @@
 	 	<!--passo la ricetta-->
 	 	<main>
 	 	
-		 	<div class="container pt-5">
+		 	<div class="container pt-5 bg-dark ">
+		 	<hr>
 		 	
-		        <h1 class="text-center mb-3" th:text="${recipe.title}"></h1>
+		        <h1 class="text-center mb-3 text-warning" th:text="${recipe.title}"></h1>
 		        
-		        <div class="card mb-3">
+		        <div class="card mb-3 border border-warning bg-dark">
 		        
-		        	<div class="row g-0">
+		        	<div class="row g-0 ">
 		        	
 		            	<div class="col-md-8">
 
@@ -41,37 +42,37 @@
 	              		
 	                		<div class="card-body">
 								
-							<ul class="list-group list-group-flush">	
+							<ul class="list-group list-group-flush ">	
 							
 	                 			<h5 class="card-title p-2 text-success bg-light" th:if="${recipe.isVegetarian}">Vegetariano</h5>
 	                 			<h5 class="card-title p-2 text-success bg-light" th:if="${recipe.isVegan}">Vegano</h5>
 		                            
-		                        <li class="list-group-item">
+		                        <li class="list-group-item bg-dark text-white">
 		                            
-		                            <h5>Tempo di preparazione: </h5>
+		                            <h5 class="text-warning">Tempo di preparazione: </h5>
 		                            <i class="fa-regular fa-clock"></i>
 		                            <p class="d-inline" th:text="${recipe.preparationTime + ' minuti'}"></p>
 		                            
 		                        </li>
-		                        <li class="list-group-item">   
+		                        <li class="list-group-item bg-dark text-white">   
 				                
-									<h5>Difficoltà: </h5>
+									<h5 class="text-warning">Difficoltà: </h5>
 									<i class="fa-regular fa-star"></i>
 					                <p class="d-inline" th:if="${recipe.difficulty} == 1">Facile</p>
 				                	<p class="d-inline" th:if="${recipe.difficulty} == 2">Medio</p>
 				                	<p class="d-inline" th:if="${recipe.difficulty} == 3">Difficile</p>
 					                
 		                        </li>
-		                        <li class="list-group-item">  
+		                        <li class="list-group-item bg-dark text-white">  
 		                        
-					                <h5>Categoria: </h5>
+					                <h5 class="text-warning">Categoria: </h5>
 					                <i class="fa-solid fa-utensils"></i>
 				                	<p class="d-inline" th:text="${recipe.category.name}"></p>
 				                
 		                        </li>
-		                        <li class="list-group-item"> 
+		                        <li class="list-group-item bg-dark text-white"> 
 		                        	
-		                        	<h5>Ingredienti:</h5>
+		                        	<h5 class="text-warning">Ingredienti:</h5>
 	                				<ul th:each="i : ${recipe.ingredients}">
 	                			
 	                					<li>
@@ -81,7 +82,7 @@
 	                				</ul>
 				               		
 		                        </li>
-	                 			<p class="card-text"><small class="text-muted">Pubblicato il <span th:text="${recipe.publicationDate}"></span></small></p>
+	                 			<p class="card-text "><small class="text-muted bg-dark ">Pubblicato il <span th:text="${recipe.publicationDate}"></span></small></p>
 	                
 							</ul>
 	                			
@@ -93,17 +94,17 @@
 	            	
 	        	</div>
 	        
-	        	<div class="text-center mt-2 mb-5">
+	        	<div class="text-center mt-2 mb-5 border border-warning">
 	        
-		            <h3>Descrizione</h3>
-		            <p th:text="${recipe.description}"></p>
+		            <h3 class="text-warning">Descrizione</h3>
+		            <p class="text-white" th:text="${recipe.description}"></p>
 	            
 	        	</div>
 	       	
 			</div>  
 	     
 	    	 <!--sezione comment-->
-	        <h3 class="text-center mb-3">Sezione commenti</h3>
+	        <h3 class="text-center mb-3 text-warning">Sezione commenti</h3>
 	        
 		  	<!--creo form aggiungi COMMENTO e poi devo aggiungere lista dove si vedranno i commenti aggiunti-->
 			<form 
@@ -111,23 +112,23 @@
 				th:object="${newComment}"
 				th:action="@{/comments/save/{id}(id=${recipe.id})}"method="POST">
 				
-				<div class="container">
+				<div class="container border border-warning">
 				
-					<div class="mb-3">
+					<div class="mb-3 text-warning">
 			    	
 							<label class ="form-label" for ="name">Name</label>
 							<input type="text" id="name" class ="form-controll" th:field="*{name}">
 													
 					</div>
 					
-					<div class="mb-3">
+					<div class="mb-3 text-warning">
 			    	
 							<label class ="form-label" for ="name">email</label>
 							<input type="text" id="email" class ="form-controll" th:field="*{email}">						
 					</div>
 					
 
-					<div class="form-floating">
+					<div class="form-floating text-warning">
   						<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" th:field="*{comment}"></textarea>
   						<label for="floatingTextarea2">Commento</label>
   						
@@ -135,7 +136,7 @@
 				
 
 						<!--bottone per salvare nuova ricetta-->		
-						<button type="submit" class="btn btn-primary mt-3">Commenta</button>
+						<button type="submit" class="btn btn-black text-warning border border-warning mt-3">Commenta</button>
 						
 					</form>
 							
@@ -172,7 +173,7 @@
   
   
   
-		<footer class="mt-5 bg-light border border-ligt">
+		<footer class="mt-5 bg-warning border border-black ">
 		
 		    <div class="container-fluid w-75">
 		    
@@ -197,11 +198,11 @@
 		          </div> 
 		          
 		          <ul class="list-group ">
-		            <li class="list-group-item">
+		            <li class="list-group-item bg-warning">
 		              <i class="fa-brands fa-instagram"></i> 
 		              <p class="d-inline text-start">ricette.casarecce</p>
 		            </li>
-		            <li class="list-group-item">
+		            <li class="list-group-item bg-warning">
 		              <i class="fa-brands fa-facebook"></i>
 		              <p class="d-inline text-start">Ricette Casarecce</p>
 		            </li>   
