@@ -93,6 +93,9 @@ public class RecipeController {
 	    	}
 	    }
 	    model.addAttribute("List7gg", List7gg);
+	    
+	    List<Recipe> ListMostViewed = recipeRepo.findAllByOrderByCounterViewsDesc();
+	    model.addAttribute("ListMostViewed", ListMostViewed);
 		
 		return "homePage";
 		
