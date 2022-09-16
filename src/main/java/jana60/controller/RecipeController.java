@@ -172,7 +172,7 @@ public class RecipeController {
 		
 		List<Recipe>ListSub = recipeRepo.findByTitleContainingOrDescriptionContaining(queryTitle, queryDescription);
 		model.addAttribute("ListSub",ListSub);
-		return"homePage";
+		return"search"; //modificato ora
 	}
 
 	@GetMapping("/search/category/{categoryId}")
@@ -191,7 +191,7 @@ public class RecipeController {
 				
 		model.addAttribute("ListSub", ListSub);
 		
-		return "homePage";
+		return "search"; // modificato ora
 		
 	}
 	
@@ -206,7 +206,7 @@ public class RecipeController {
 				
 		model.addAttribute("ListSub", ListSub);
 		
-		return "homePage";
+		return "search";
 		
 	}
 	
@@ -221,7 +221,7 @@ public class RecipeController {
 				
 		model.addAttribute("ListSub", ListSub);
 		
-		return "homePage";
+		return "search";
 		
 	}
 	

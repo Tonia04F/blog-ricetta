@@ -5,11 +5,11 @@
   
     <th:block th:replace="fragments/resources :: head-resources"></th>
    
-    <title>Hello, world!</title>
+    <title>Home page</title>
     
   </head>
   
-  <body class="font">
+  <body class="container-fluid justify-content bg-dark background">
  	
  	<header>
  	
@@ -18,7 +18,7 @@
  	</header>	
  	
  	
- 	<div class="bg-light">
+ 	<div class="container w-100 bg-dark ">
 
                  <div class="container text-center pt-3 pb-5 d-flex justify-content-evenly ">
 
@@ -34,13 +34,15 @@
              </div>
              
               
-    <!--<div class="row">
- 				<h3>Lista di ricette degli ultimi 7 giorni</h3>
+    <div class="container row w-100 justify-content">
+    <hr class="text-warning">
+ 				<h3 class="text-warning">Lista di ricette degli ultimi 7 giorni</h3>
+    <hr class="text-warning">
  				<div class="col-4"th:each="t : ${List7gg}">
  				
 
- 				<div class="text-center p-3 bg-dark text-info w-100 mb-0">
-                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
+ 				<div class="text-center p-3 bg-dark w-100 mb-0 border border-warning">
+                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" class="text-decoration-none text-warning bg-dark border-warning"></a>
  					<p class="d-inline text-start text-success" th:if="${t.isVegan}">(Vegano)</p>
                     <p class="d-inline text-start text-success" th:if="${t.isVegetarian}">(Vegetariano)</p>
  				</div>
@@ -48,32 +50,27 @@
                    
                     <img th:src="@{|/image/${t.id}/content|}" class="w-100" alt="">
                 	
-                	<div class="shadow p-1 mb-5 bg-body rounded">
+                	<div class="shadow p-1 mb-5 ">
                 
-                	<ul class="list-group list-group-flush">
+                	<ul class="list-group list-group-flush bg-body rounded border border-warning">
                 
-                    	<li class="list-group-item">
+                    	<li class="list-group-item bg-dark text-warning">
                     
 	                          <i class="fa-regular fa-clock"></i>
 	                          <p class="d-inline text-start" th:text="${t.preparationTime}"></p>
 	                    
 	                     </li>
 	                     
-	                     <li class="list-group-item">
+	                     <li class="list-group-item bg-dark text-warning">
 	                     
 	                           <i class="fa-regular fa-star"></i>
-	                           <p class="d-inline text-start" th:text="${t.difficulty}"></p>
+	                           <p class="d-inline text-start " th:text="${t.difficulty}"></p>
 	                   
 	                    </li> 
 	                    
-	                    <li class="list-group-item" th:if="${t.isVegan}">
+	                                        
 	                    
-	                    	<i class="fa-solid fa-seedling"></i>
-	                        <p class="d-inline text-start">Vegano</p>
-	                    
-	                    </li>	                    
-	                    
-	                    <li class="list-group-item">
+	                    <li class="list-group-item bg-dark text-warning">
 	                    
 	                          <i class="fa-regular fa-heart"></i>
 	                          <p class="d-inline text-start">1000</p>
@@ -93,70 +90,73 @@
  	
  		</div>
  		
- 	</div>-->
- 	
- 	<!-- crezione della tabella per vedere la lista-->
-
-    <div class="container mt-3 fst-italic">
-    
-    	<h1 class="text-center">Le nostre specialità</h1>
-    
- 
- 			<div class="row">
- 				
- 				<div class="col-4 "th:each="t : ${ListSub}">
- 				
-
- 				<div class="text-center p-3 bg-warning w-100 mb-0">
-                    <a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" class="text-decoration-none text-dark"></a>
- 					<p class="d-inline text-start text-success" th:if="${t.isVegan}">(Vegano)</p>
-                    <p class="d-inline text-start text-success" th:if="${t.isVegetarian}">(Vegetariano)</p>
- 				</div>
-
-                   
-                    <img th:src="@{|/image/${t.id}/content|}" class="w-100" alt="">
-                	
-                	<div class="shadow p-1 mb-5 bg-body rounded">
-                
-                	<ul class="list-group list-group-flush">
-                
-                    	<li class="list-group-item">
-                    
-	                          <i class="fa-regular fa-clock"></i>
-	                          <p class="d-inline text-start" th:text="${t.preparationTime}"></p>
-	                    
-	                     </li>
-	                     
-	                     <li class="list-group-item">
-	                     
-	                           <i class="fa-regular fa-star"></i>
-	                           <p class="d-inline text-start" th:text="${t.difficulty}"></p>
-	                   
-	                    </li>                  
-	                    
-	                    <li class="list-group-item">
-
-	                          <i class="fa-regular fa-eye"></i>
-	                          <p class="d-inline text-start" th:text="${t.counterViews}"></p>
-	                          <i class="fa-regular fa-comment"></i>
-	                          <p class="d-inline text-start" th:text="${t.comments.size()}"></p>
-	                          
-	                    </li> 
-                       
-                	</ul>
-                
-            	</div>
-            
-        	</div>
-        
- 	
- 		</div>
- 		
  	</div>
  	
+ 	<!-- crezione della tabella per vedere la lista-->
+<style>
+body {
+	
+  background-image:url("https://www.pinterest.com/pin/384635624429071077/");
+  background-repeat: no-repeat;
+ 
+    background-position:initial;
+    background-size:cover ;
+ 
+  
+
+  height:100%;
+   width:100%;
+      position: absolute;
+
+}
+</style>
+    
  	
- 	
- 	
+<footer  class="mt-5 bg-warning border border-black ">
+		
+		    <div class="container-fluid w-75">
+		    
+		      <div class="row mt-5 d-flex justify-content-around pt-5">
+		      
+		        <div class="col-12 col-md-3 text-dark-50 text-center">
+		        
+		          <h4>LOCATION</h4>
+		          <div class="w-100 pb-2">
+		            <h8>2213 John Daniel Drive</h8>
+		          </div>  
+		          
+		          <div  class="w-100 pb-2">
+		            <h8>Clark, MO 65243</h8>
+		          </div>  
+		          
+		        </div>
+		        
+		        <div class="d-flex flex-column col-12 col-md-3 text-dark-50 text-center">
+		          <div class="w-100">
+		            <h4>I NOSTRI SOCIAL</h4>
+		          </div> 
+		          
+		          <ul class="list-group ">
+		            <li class="list-group-item bg-warning">
+		              <i class="fa-brands fa-instagram"></i> 
+		              <p class="d-inline text-start">ricette.casarecce</p>
+		            </li>
+		            <li class="list-group-item bg-warning">
+		              <i class="fa-brands fa-facebook"></i>
+		              <p class="d-inline text-start">Ricette Casarecce</p>
+		            </li>   
+		          </ul>  
+		          
+		        </div>
+		        <div class="col-12 text-dark-50 text-center pb-5 pt-2 pt-md-5">
+		          <p>Copyright &copy; Ricette Casarecce 2022</p>
+		        </div>
+		        
+		      </div>
+		      
+		    </div>
+		    
+		</footer>
  	
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -9,7 +9,7 @@
     
   	</head>
   	
-  	<body>
+  	<body class="bg-dark text-warning">
   	
 		<header>
 	 		 	
@@ -18,41 +18,45 @@
 	 	</header>
 		<main> 
 	 	
-  			<div class="container w-75 mt-2">
+  			<div class="container w-75 pt-2 text-worning">
+
   			
 				<h1>Pagina amministratore</h1>
 	  			<hr>
 				
-				<div>
-                	<a th:href="@{/add}"  role="button" class="btn btn-warning me-3 rounded-3 text-dark fw-bold">Aggiungi una ricetta</a>
+				<div class="container w-75 pt-2 ">
+                	<a th:href="@{/add}"  role="button" class="btn btn-dark me-3 rounded-3 text-warning border border-warning fw-bold">Aggiungi una ricetta</a>
                 
-                	<a th:href="@{/ingredients}"  role="button" class="btn btn-warning me-3 rounded-3 text-dark fw-bold">Aggiungi un ingrediente</a>
+                	<a th:href="@{/ingredients}"  role="button" class="btn btn-dark me-3 rounded-3 text-warning border-warning fw-bold">Aggiungi un ingrediente</a>
                 
-                	<a th:href="@{/category}"  role="button" class="btn btn-warning me-3 rounded-3 text-dark fw-bold">Aggiungi una categoria</a>
+                	<a th:href="@{/category}"  role="button" class="btn btn-dark me-3 rounded-3 text-warning border-warning fw-bold">Aggiungi una categoria</a>
                 </div>
-
+                
+				<hr>
+         		
          		<div th:if="${#lists.isEmpty(ListSub)}">
          		
 	        		<h1>Spiacenti, non è disponibile una lista di ricette</h1>
 	        		
 	      		</div>
-	      		
+	      		<h2 class="text-warning">Le nostre ricette</h2>
+	      		<hr>
 				<div th:unless="${#lists.isEmpty(ListSub)}" style="color: aliceblue;">
       
-					<table class="table mb-5" style="color: black;">
+					<table class="table mb-5 text-white" style="color: black;">
 			        
 						<thead>
 			        	
 							<tr>
 			            	
-			                	<th>Nome</th>
-					        	<th>Tempo di preparazione</th>
-					        	<th>Difficoltà</th>
-					        	<th>Commenti</th>
-					            <th>Views</th>
-					            <th>Data di pubblicazione</th>
-					            <th>Categoria</th>
-					            <th>Action</th>
+			                	<th class="text-warning">Nome</th>
+					        	<th class="text-warning">Tempo di preparazione</th>
+					        	<th class="text-warning">Difficoltà</th>
+					        	<th class="text-warning">Commenti</th>
+					            <th class="text-warning">Views</th>
+					            <th class="text-warning">Data di pubblicazione</th>
+					            <th class="text-warning">Categoria</th>
+					            <th class="text-warning">Action</th>
 					              
 			           		</tr>
 			           		
@@ -64,7 +68,7 @@
 			            	<tr th:each="t : ${ListSub}">
 			            	
 			              		<td>
-			              			<a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
+			              			<a class="text-warning" th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
 			              		</td>
 					            <td th:text="${t.preparationTime}"></td>
 					            <td th:if="${t.difficulty} == 1">Facile</td>
@@ -75,13 +79,13 @@
 					            <td th:text="${t.publicationDate}"></td>
 					            <td th:text="${t.category.name}"></td>
 			           			<td>			
-									<a class="btn btn-primary" th:href="@{|/edit/${t.id}|}" title="Edit">
+									<a class="btn btn-warning" th:href="@{|/edit/${t.id}|}" title="Edit">
 						  				<i class="fa-solid fa-pen-to-square"></i>
 						  			</a>						  				
-						  			<a class="btn btn-primary" th:href="@{|/image/${t.id}|}" title="Edit">
+						  			<a class="btn btn-warning" th:href="@{|/image/${t.id}|}" title="Edit">
 						  				<i class="fa-solid fa-images"></i>
 						  			</a>
-						  			<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
+						  			<a class="btn btn-warning" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
 						  				<i class="fa-solid fa-trash-can"></i>
 						  			</a>
 						  		</td>
@@ -93,8 +97,9 @@
 					</table>
 					
 				</div>
-   
+   				<hr>
     			<h3>Lista di ricette degli ultimi 7 giorni</h3>
+    			<hr>
     
 			    <div th:if="${#lists.isEmpty(List7gg)}">
 			    
@@ -104,19 +109,19 @@
 				
       			<div th:unless="${#lists.isEmpty(List7gg)}" style="color: aliceblue;">
       
-					<table class="table mb-5" style="color: black;">
+					<table class="table mb-5 text-white" style="color: black;">
 						<thead>
 						
 							<tr>
 							
-		                    	<th>Nome</th>
-				            	<th>Tempo di preparazione</th>
-				            	<th>Difficoltà</th>
-				                <th>Commenti</th>
-				                <th>Views</th>
-				                <th>Data di pubblicazione</th>
-				                <th>Categoria</th>
-				                <th>Action</th>
+		                    	<th class="text-warning">Nome</thclass="text-warning">
+				            	<th class="text-warning">Tempo di preparazione</thclass="text-warning">
+				            	<th class="text-warning">Difficoltà</th>
+				                <th class="text-warning">Commenti</th>
+				                <th class="text-warning">Views</th>
+				                <th class="text-warning">Data di pubblicazione</th>
+				                <th class="text-warning">Categoria</th>
+				                <th class="text-warning">Action</th>
 				                
             				</tr>
             				
@@ -127,7 +132,7 @@
 				        	<tr th:each="t : ${List7gg}">
 				        	
 				            	<td>
-				            		<a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
+				            		<a class="text-warning" th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
 				            	</td>
 				                <td th:text="${t.preparationTime}"></td>
 				                <td th:if="${t.difficulty} == 1">Facile</td>
@@ -138,13 +143,13 @@
 				                <td th:text="${t.publicationDate}"></td>
 				                <td th:text="${t.category.name}"></td>
 					            <td>
-									<a class="btn btn-primary" th:href="@{|/edit/${t.id}|}" title="Edit">
+									<a class="btn btn-warning" th:href="@{|/edit/${t.id}|}" title="Edit">
 	  									<i class="fa-solid fa-pen-to-square"></i>
 	  								</a>
-	  								<a class="btn btn-primary" th:href="@{|/image/${t.id}|}" title="Edit">
+	  								<a class="btn btn-warning" th:href="@{|/image/${t.id}|}" title="Edit">
 	  									<i class="fa-solid fa-images"></i>
 	  								</a>
-	  								<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
+	  								<a class="btn btn-warning" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
 						  				<i class="fa-solid fa-trash-can"></i>
 						  			</a>
 	  							</td>
@@ -157,8 +162,9 @@
 					
       			</div>
       			
+      			<hr>
       			<h3>Lista delle ricette più visualizzate</h3>
-    
+    			<hr>
 			    <div th:if="${#lists.isEmpty(ListMostViewed)}">
 			    
 					<h1>Spiacenti, non è disponibile una lista di ricette</h1>
@@ -167,19 +173,19 @@
 				
       			<div th:unless="${#lists.isEmpty(ListMostViewed)}" style="color: aliceblue;">
       
-					<table class="table mb-5" style="color: black;">
+					<table class="table mb-5 text-white" style="color: black;">
 						<thead>
 						
 							<tr>
 							
-		                    	<th>Nome</th>
-				            	<th>Tempo di preparazione</th>
-				            	<th>Difficoltà</th>
-				                <th>Commenti</th>
-				                <th>Views</th>
-				                <th>Data di pubblicazione</th>
-				                <th>Categoria</th>
-				                <th>Action</th>
+		                    	<th class="text-warning">Nome</th>
+				            	<th class="text-warning">Tempo di preparazione</th>
+				            	<th class="text-warning">Difficoltà</th>
+				                <th class="text-warning">Commenti</th>
+				                <th class="text-warning">Views</th>
+				                <th class="text-warning">Data di pubblicazione</th>
+				                <th class="text-warning">Categoria</th>
+				                <th class="text-warning">Action</th>
 				                
             				</tr>
             				
@@ -190,7 +196,7 @@
 				        	<tr th:each="t : ${ListMostViewed}">
 				        	
 				            	<td>
-				            		<a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
+				            		<a class="text-warning" th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
 				            	</td>
 				                <td th:text="${t.preparationTime} + minuti"></td>
 				                <td th:if="${t.difficulty} == 1">Facile</td>
@@ -201,13 +207,13 @@
 				                <td th:text="${t.publicationDate}"></td>
 				                <td th:text="${t.category.name}"></td>
 					            <td>
-									<a class="btn btn-primary" th:href="@{|/edit/${t.id}|}" title="Edit">
+									<a class="btn btn-warning" th:href="@{|/edit/${t.id}|}" title="Edit">
 	  									<i class="fa-solid fa-pen-to-square"></i>
 	  								</a>
-	  								<a class="btn btn-primary" th:href="@{|/image/${t.id}|}" title="Edit">
+	  								<a class="btn btn-warning" th:href="@{|/image/${t.id}|}" title="Edit">
 	  									<i class="fa-solid fa-images"></i>
 	  								</a>
-	  								<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
+	  								<a class="btn btn-warning" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
 						  				<i class="fa-solid fa-trash-can"></i>
 						  			</a>
 	  							</td>
