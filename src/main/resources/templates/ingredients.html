@@ -9,7 +9,7 @@
      
    </head>
 
-   <body>
+   <body class="bg-dark">
    			
  	<header>
  		
@@ -22,9 +22,13 @@
  	</header>	
  	
  	
-   	<div class="container">
+   	<div class="container text-warning ">
+   	
+   		<h2> Aggiungi un nuovo ingrediente</h2>
+   		<hr>
    		
-   		<div class="col-6">	
+   		<div class="col-6  ">	
+   		
    		
 			<!--creo form aggiungi ingredienti e poi devo aggiungere lista dove si vedranno gli ingredienti ggiunte-->
 			<form 
@@ -54,7 +58,7 @@
 						 	<label>Vegetariano</label>
 						 	
 						</div> 
-						 	<button class="btn btn-info" type="submit" id="ingredient-button">Salva</button>
+						 	<button class="btn btn-warning text-dark border border-warning" type="submit" id="ingredient-button">Salva</button>
 						 
 			
 					 
@@ -76,12 +80,12 @@
  			<!-- alista ingr-->
 		 	<ul class="list-group mt-3" th:if="${ingredients.size() > 0}">
 		 	
-				<li class="list-group-item" th:each="i : ${ingredients}">
+				<li class="list-group-item bg-dark text-warning border border-warning" th:each="i : ${ingredients}">
 				
 			  		<span th:text="${i.name}"></span>
 			  		
 			  		
-	  					<a class="btn btn-primary" th:href="@{|/ingredients/delete/${i.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
+	  					<a class="btn btn-warning text-dark border border-warning" th:href="@{|/ingredients/delete/${i.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
 				</li>
 				
 			</ul>
