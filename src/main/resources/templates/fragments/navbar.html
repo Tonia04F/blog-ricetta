@@ -55,7 +55,7 @@
 				  		</div>
 				  			<!--TASTI ADMIN USER-->
 				  		
-				  				<a class=" text-decoration-none text-warning" href="/admin">Area amministrazione</a>
+				  				<a sec:authorize="hasAuthority('ADMIN')" class=" text-decoration-none text-warning" href="/admin">Area amministrazione</a>
 
 				  			</div>
 					    
