@@ -78,14 +78,14 @@
    			</form>
  		
  			<!-- alista ingr-->
-		 	<ul class="list-group mt-3" th:if="${ingredients.size() > 0}">
+		 	<ul class="list-group mt-3 border border-warning" th:if="${ingredients.size() > 0}">
 		 	
-				<li class="list-group-item bg-dark text-warning border border-warning" th:each="i : ${ingredients}">
+				<li class="list-group-item bg-dark text-warning d-flex justify-content-between" th:each="i : ${ingredients}">
 				
 			  		<span th:text="${i.name}"></span>
 			  		
 			  		
-	  					<a class="btn btn-warning text-dark border border-warning" th:href="@{|/ingredients/delete/${i.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
+	  					<a class="btn btn-warning text-dark" th:href="@{|/ingredients/delete/${i.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
 				</li>
 				
 			</ul>

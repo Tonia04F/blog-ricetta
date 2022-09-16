@@ -38,23 +38,23 @@ public class Recipe {
 	
 	private Integer counterViews = 0;
 	
-	@NotEmpty(message = "Il tempo di preparazione della ricetta è necessario")
-	@Column(nullable = false)
+	//@NotEmpty(message = "Il tempo di preparazione della ricetta è necessario")
+	//@Column(nullable = false)
 	private Integer preparationTime;
 	
-	@NotEmpty(message = "La difficoltà della ricetta è necessaria")
-	@Column(nullable = false)
+	//@NotEmpty(message = "La difficoltà della ricetta è necessaria")
+	//@Column(nullable = false)
 	@Min(value=1)
 	@Max(value=3)
 	private Integer difficulty;
 	
-	@NotEmpty(message = "La preparazione della ricetta è necessaria")
-	@Column(nullable = false)
+	//@NotEmpty(message = "La preparazione della ricetta è necessaria")
+	//@Column(nullable = false)
 	@Lob
 	private String description;
 	
-	@NotEmpty(message = "La data di pubblicazione della ricetta è necessaria")
-	@Column(nullable = false)
+	//@NotEmpty(message = "La data di pubblicazione della ricetta è necessaria")
+	//@Column(nullable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate publicationDate;
 	

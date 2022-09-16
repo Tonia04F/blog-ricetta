@@ -1,53 +1,56 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/%22%3E">
 
-	<head>
-  
-	    <th:block th:replace="fragments/resources :: head-resources"></th>
-	    
-	    <title>Category</title>
-    
-  	</head>
-  
-  	<body>
-  	
-	  	<header>
-	 	
-	 		
-	 	
-	 		<nav th:replace="fragments/navbar :: navbar('recipes')"></nav>
-	 	
-	 	</header>
-	 
-	 <!--FORM PER AGGIUNGERE CATEGORIE-->
-	  <form
-	    	id="nuova-ricetta"
-	    	th:object="${newCategory}"
-	    	th:action="@{/category/add}"
-	    	method=POST
-	    	>
-	    	
-	    	<div class="mb-3">
-	    	
-					<label class ="form-label" for ="name">Categoria</label>
-					<input type="text" id="name" class ="form-controll" th:field="*{name}">
-					
-			</div>
-			
-			<!--bottone per salvare nuova categoria-->		
-			<button type="submit" class="btn btn-primary mt-3">Crea</button>
-			
-			<!--LISTA PER VISUALIZZARE CATEGORIE-->
-			 <ul class="list-group" th:if="${categories.size() > 0}">
-			<li class="list-group-item" th:each="c : ${categories}">
-			  		<span th:text="${c.name}"></span>
-			  	  	<a class="btn btn-primary" th:href="@{|/category/delete/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
+    <head>
 
-			</li>
-		</ul>
-	
-	<footer th:replace="fragments/footer :: footer"></footer>
-	    
+        <th:block th:replace="fragments/resources :: head-resources"></th>
+
+        <title>Category</title>
+
+      </head>
+
+      <body class="bg-dark text-warning">
+
+          <header>
+
+
+
+             <nav th:replace="fragments/navbar :: navbar('recipes')"></nav>
+
+         </header>
+    <div class="container text-warning mb-5">
+        <h2> Aggiungi un nuovo ingrediente</h2>
+           <hr> 
+
+     <!--FORM PER AGGIUNGERE CATEGORIE-->
+      <form
+            id="nuova-ricetta"
+            th:object="${newCategory}"
+            th:action="@{/category/add}"
+            method=POST
+            >
+
+            <div class="mb-3 col-6">
+
+                    <input type="text" id="name" placeholder="Nome categoria" class ="form-control" th:field="*{name}">
+
+            </div>
+
+            <!--bottone per salvare nuova categoria-->
+            <button type="submit" class="btn btn-warning text-dark border border-warning mb-5 mt-3">Salva</button>
+      </form>
+            <!--LISTA PER VISUALIZZARE CATEGORIE-->
+             <ul class="list-group  border border-warning col-6" th:if="${categories.size() > 0}">
+            <li class="list-group-item bg-dark text-warning d-flex justify-content-between" th:each="c : ${categories}">
+                      <span th:text="${c.name}"></span>
+                      
+                      <a class="btn btn-warning text-dark border border-warning" th:href="@{|/category/delete/${c.id}|}" title="Delete" onclick="confirm('Are your sure?')"><i class="fa-solid fa-trash-can"></i></a>
+                      
+            </li>
+        </ul>
+    </div>
+    <footer th:replace="fragments/footer :: footer"></footer>
+
   </body>
-  
+
 </html>

@@ -40,7 +40,12 @@
  				<h3 class="text-warning">Lista di ricette degli ultimi 7 giorni</h3>
     <hr class="text-warning">
     		
- 				<div class="col-4" th:each="t : ${List7gg}">
+    			<div th:if="${#lists.isEmpty(List7gg)}">
+         		
+	        		<h5 class="text-warning">Spiacenti, non è disponibile una lista di ricette</h5>
+	        		
+	      		</div>
+ 				<div th:unless="${#lists.isEmpty(List7gg)}" class="col-4" th:each="t : ${List7gg}">
  				
 
  				<div class="text-center p-3 bg-dark w-100 mb-0 border border-warning">
@@ -94,8 +99,14 @@
     <hr class="text-warning">
  				<h3 class="text-warning">Lista delle ricette più viste</h3>
     <hr class="text-warning">
+    
+    			<div th:if="${#lists.isEmpty(ListMostViewed)}">
+         		
+	        		<h5 class="text-warning">Spiacenti, non è disponibile una lista di ricette</h5>
+	        		
+	      		</div>
     		
- 				<div class="col-4" th:each="t : ${ListMostViewed}">
+ 				<div th:unless="${#lists.isEmpty(ListMostViewed)}" class="col-4" th:each="t : ${ListMostViewed}">
  				
 
  				<div class="text-center p-3 bg-dark w-100 mb-0 border border-warning">
