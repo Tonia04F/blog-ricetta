@@ -176,10 +176,10 @@
 					<table class="table mb-5 text-white" style="color: black;">
 						<thead>
 						
-							<tr>
+							<tr class="text-warning">
 							
-		                    	<th class="text-warning">Nome</th>
-				            	<th class="text-warning">Tempo di preparazione</th>
+		                    	<th>Nome</th>
+				            	<th>Tempo di preparazione</th>
 				            	<th class="text-warning">Difficoltà</th>
 				                <th class="text-warning">Commenti</th>
 				                <th class="text-warning">Views</th>
@@ -238,10 +238,10 @@
 				
       			<div th:unless="${#lists.isEmpty(ListMostCommented)}" style="color: aliceblue;">
       
-					<table class="table mb-5" style="color: black;">
+					<table class="table mb-5 text-white" style="color: black;">
 						<thead>
 						
-							<tr>
+							<tr class="text-warning">
 							
 		                    	<th>Nome</th>
 				            	<th>Tempo di preparazione</th>
@@ -261,7 +261,7 @@
 				        	<tr th:each="t : ${ListMostCommented}">
 				        	
 				            	<td>
-				            		<a th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
+				            		<a class="text-warning" th:href="@{|/recipeDetails/${t.id}|}" th:text="${t.title}" ></a>
 				            	</td>
 				                <td th:text="${t.preparationTime} + minuti"></td>
 				                <td th:if="${t.difficulty} == 1">Facile</td>
@@ -272,13 +272,13 @@
 				                <td th:text="${t.publicationDate}"></td>
 				                <td th:text="${t.category.name}"></td>
 					            <td>
-									<a class="btn btn-primary" th:href="@{|/edit/${t.id}|}" title="Edit">
+									<a class="btn btn-warning" th:href="@{|/edit/${t.id}|}" title="Edit">
 	  									<i class="fa-solid fa-pen-to-square"></i>
 	  								</a>
-	  								<a class="btn btn-primary" th:href="@{|/image/${t.id}|}" title="Edit">
+	  								<a class="btn btn-warning" th:href="@{|/image/${t.id}|}" title="Edit">
 	  									<i class="fa-solid fa-images"></i>
 	  								</a>
-	  								<a class="btn btn-primary" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
+	  								<a class="btn btn-warning" th:href="@{|/delete/${t.id}|}" title="Delete" onclick="confirm('Are your sure?')">
 						  				<i class="fa-solid fa-trash-can"></i>
 						  			</a>
 	  							</td>
@@ -294,6 +294,8 @@
     		</div>
           	 	
 		</main>
+		
+		<footer th:replace="fragments/footer :: footer"></footer>
 	 	
   	</body>
   
